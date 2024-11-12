@@ -30,6 +30,12 @@
       "@libs/env/*": [
         "libs/env/src/*"
       ],
+      "@components/country": [
+        "libs/components/country/src"
+      ],
+      "@components/country/*": [
+        "libs/components/country/src/*"
+      ]
     }
   }
 }

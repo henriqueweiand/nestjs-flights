@@ -17,7 +17,12 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./apps/nestjs-flights/test/jest-e2e.json"
+    "test:e2e": "jest --config ./apps/nestjs-flights/test/jest-e2e.json",
+    "typeorm": "ts-node ./node_modules/typeorm/cli",
+    "typeorm:create": "yarn typeorm -- migration:create ./libs/persistence/src/typeorm/migrations/migration",
+    "typeorm:generate": "yarn typeorm -- migration:generate ./libs/persistence/src/typeorm/migrations/generated -d ./libs/persistence/src/typeorm/orm.config.ts",
+    "typeorm:run": "yarn typeorm migration:run -d ./libs/persistence/src/typeorm/orm.config.ts",
+    "typeorm:revert": "yarn typeorm migration:revert -d ./libs/persistence/src/typeorm/orm.config.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -25,6 +30,7 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.2",
+    "dotenv": "^16.4.5",
     "pg": "^8.13.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
@@ -74,7 +80,8 @@
       "<rootDir>/apps/"
     ],
     "moduleNameMapper": {
-      "^@app/persistence(|/.*)$": "<rootDir>/libs/persistence/src/$1"
+      "^@app/persistence(|/.*)$": "<rootDir>/libs/persistence/src/$1",
+      "^@components/country(|/.*)$": "<rootDir>/libs/components/country/src/$1"
     }
   }
 }

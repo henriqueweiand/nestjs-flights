@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
+
 import { FlightsController } from './flights.controller';
 import { FlightsService } from './flights.service';
-// import { PersistenceModule } from '@libs/persistence';
+
+import { PersistenceModule } from '@libs/persistence';
 import { EnvModule } from '@libs/env';
 
 const app = 'FLIGHTS';
@@ -9,7 +11,7 @@ const app = 'FLIGHTS';
 @Module({
   imports: [
     EnvModule.register(app),
-    // PersistenceModule.registerTypeOrm(app),
+    PersistenceModule.registerTypeOrm(app),
   ],
   controllers: [FlightsController],
   providers: [FlightsService],
