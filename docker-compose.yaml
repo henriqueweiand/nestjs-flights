@@ -15,3 +15,9 @@ services:
     ports:
       - '5432:5432'
     restart: unless-stopped
+
+  redis:
+    image: 'redis:alpine'
+    hostname: redis
+    ports:
+      - '6389:6379'

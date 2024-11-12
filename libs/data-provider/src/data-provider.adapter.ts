@@ -2,5 +2,5 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export abstract class DataProviderAdapter {
-  abstract getCoutries(): Promise<any>;
+  abstract getCountries(): Promise<any>;
 }

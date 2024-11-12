@@ -33,12 +33,12 @@
     "@nestjs/typeorm": "^10.0.2",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
+    "ioredis": "^5.4.1",
     "pg": "^8.13.1",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
-    "reflect-metadata": "^0.2.2",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",
@@ -53,6 +53,7 @@
     "eslint-plugin-prettier": "^5.0.0",
     "jest": "^29.5.0",
     "prettier": "^3.0.0",
+    "reflect-metadata": "^0.2.2",
     "source-map-support": "^0.5.21",
     "supertest": "^7.0.0",
     "ts-jest": "^29.1.0",
@@ -84,7 +85,8 @@
     "moduleNameMapper": {
       "^@app/persistence(|/.*)$": "<rootDir>/libs/persistence/src/$1",
       "^@components/country(|/.*)$": "<rootDir>/libs/components/country/src/$1",
-      "^@app/data-provider(|/.*)$": "<rootDir>/libs/data-provider/src/$1"
+      "^@app/data-provider(|/.*)$": "<rootDir>/libs/data-provider/src/$1",
+      "^@app/cache(|/.*)$": "<rootDir>/libs/cache/src/$1"
     }
   }
 }

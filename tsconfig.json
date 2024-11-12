@@ -41,6 +41,12 @@
       ],
       "@app/data-provider/*": [
         "libs/data-provider/src/*"
+      ],
+      "@app/cache": [
+        "libs/cache/src"
+      ],
+      "@app/cache/*": [
+        "libs/cache/src/*"
       ]
     }
   }
