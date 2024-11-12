@@ -4,6 +4,8 @@ import { config } from 'dotenv';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { join } from 'path';
 
+require('tsconfig-paths/register');
+
 config({ path: join(__dirname + '../../../../../', '.env') });
 config({ path: join(__dirname + '../../../../../', '.env.local'), override: true });
 

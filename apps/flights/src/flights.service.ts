@@ -1,13 +1,13 @@
-import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
+import { CountryService } from '@components/country/country.service';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class FlightsService {
   constructor(
-    private readonly dataProviderAdapter: DataProviderAdapter
+    private readonly countryService: CountryService
   ) { }
 
   getHello() {
-    return this.dataProviderAdapter.getCoutries()
+    return this.countryService.getCoutries()
   }
 }

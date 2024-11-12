@@ -3,9 +3,9 @@ import { Module } from '@nestjs/common';
 import { FlightsController } from './flights.controller';
 import { FlightsService } from './flights.service';
 
-import { AviationStackModule, DataProviderModule } from '@app/data-provider';
 import { EnvModule } from '@libs/env';
 import { PersistenceModule } from '@libs/persistence';
+import { CountryModule } from '@components/country';
 
 const app = 'FLIGHTS';
 
@@ -13,7 +13,7 @@ const app = 'FLIGHTS';
   imports: [
     EnvModule.register(app),
     PersistenceModule.registerTypeOrm(app),
-    DataProviderModule.withAdapter(AviationStackModule.withCache()),
+    CountryModule
   ],
   controllers: [FlightsController],
   providers: [FlightsService],

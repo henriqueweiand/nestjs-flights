@@ -18,7 +18,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./apps/nestjs-flights/test/jest-e2e.json",
-    "typeorm": "ts-node ./node_modules/typeorm/cli",
+    "typeorm": "ts-node -r tsconfig-paths/register -r reflect-metadata ./node_modules/typeorm/cli",
     "typeorm:create": "yarn typeorm -- migration:create ./libs/persistence/src/typeorm/migrations/migration",
     "typeorm:generate": "yarn typeorm -- migration:generate ./libs/persistence/src/typeorm/migrations/generated -d ./libs/persistence/src/typeorm/orm.config.ts",
     "typeorm:run": "yarn typeorm migration:run -d ./libs/persistence/src/typeorm/orm.config.ts",
@@ -34,11 +34,11 @@
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "pg": "^8.13.1",
-    "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
+    "reflect-metadata": "^0.2.2",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",

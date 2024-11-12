@@ -5,6 +5,8 @@ export interface AviationStackConfig {
 }
 
 export interface AviationStackCoutries {
+    id: string;
+    country_id: string;
     country_name: string;
     country_iso2: string;
     country_iso3: string;
