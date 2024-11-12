@@ -43,6 +43,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/components/country/tsconfig.lib.json"
       }
+    },
+    "data-provider": {
+      "type": "library",
+      "root": "libs/data-provider",
+      "entryFile": "index",
+      "sourceRoot": "libs/data-provider/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/data-provider/tsconfig.lib.json"
+      }
     }
   },
   "monorepo": true,

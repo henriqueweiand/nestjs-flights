@@ -35,6 +35,12 @@
       ],
       "@components/country/*": [
         "libs/components/country/src/*"
+      ],
+      "@app/data-provider": [
+        "libs/data-provider/src"
+      ],
+      "@app/data-provider/*": [
+        "libs/data-provider/src/*"
       ]
     }
   }

@@ -81,7 +81,8 @@
     ],
     "moduleNameMapper": {
       "^@app/persistence(|/.*)$": "<rootDir>/libs/persistence/src/$1",
-      "^@components/country(|/.*)$": "<rootDir>/libs/components/country/src/$1"
+      "^@components/country(|/.*)$": "<rootDir>/libs/components/country/src/$1",
+      "^@app/data-provider(|/.*)$": "<rootDir>/libs/data-provider/src/$1"
     }
   }
 }
