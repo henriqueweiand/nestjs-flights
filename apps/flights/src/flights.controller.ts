@@ -3,10 +3,10 @@ import { FlightsService } from './flights.service';
 
 @Controller()
 export class FlightsController {
-  constructor(private readonly flightsService: FlightsService) {}
+  constructor(private readonly flightsService: FlightsService) { }
 
   @Get()
-  getHello(): string {
+  getHello() {
     return this.flightsService.getHello();
   }
 }

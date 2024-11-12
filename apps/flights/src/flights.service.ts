@@ -7,7 +7,7 @@ export class FlightsService {
     private readonly dataProviderAdapter: DataProviderAdapter
   ) { }
 
-  getHello(): string {
-    return this.dataProviderAdapter.getCoutries().join(', ');
+  getHello() {
+    return this.dataProviderAdapter.getCoutries()
   }
 }
