@@ -7,6 +7,6 @@ export class FlightsController {
 
   @Get()
   getHello() {
-    return this.flightsService.getHello();
+    return this.flightsService.getCountries();
   }
 }

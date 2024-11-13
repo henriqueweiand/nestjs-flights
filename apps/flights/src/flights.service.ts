@@ -1,13 +1,20 @@
-import { CountryService } from '@components/country/country.service';
 import { Injectable } from '@nestjs/common';
+
+import { Logger, LoggerService } from '@app/logger';
+import { CountryService } from '@components/country/country.service';
 
 @Injectable()
 export class FlightsService {
-  constructor(
-    private readonly countryService: CountryService
-  ) { }
+  private readonly logger: Logger
 
-  getHello() {
+  constructor(
+    private readonly countryService: CountryService,
+    private readonly loggerService: LoggerService,
+  ) {
+    this.logger = this.loggerService.getLogger(FlightsService.name);
+  }
+
+  getCountries() {
     return this.countryService.getCountries()
   }
 }

@@ -3,15 +3,17 @@ import { Module } from '@nestjs/common';
 import { FlightsController } from './flights.controller';
 import { FlightsService } from './flights.service';
 
+import { LoggerModule } from '@app/logger';
+import { CountryModule } from '@components/country';
 import { EnvModule } from '@libs/env';
 import { PersistenceModule } from '@libs/persistence';
-import { CountryModule } from '@components/country';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
 
 const app = 'FLIGHTS';
 
 @Module({
   imports: [
+    LoggerModule,
     DevtoolsModule.register({
       http: process.env.NODE_ENV !== 'production',
       port: 8000,
