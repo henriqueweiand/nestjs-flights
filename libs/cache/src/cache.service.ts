@@ -2,11 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import Redis from 'ioredis';
 
+import { Logger, LoggerService } from '@app/logger';
+
 @Injectable()
 export class CacheService {
+    private readonly logger: Logger
+
     constructor(
-        private readonly configService: ConfigService
-    ) { }
+        private readonly configService: ConfigService,
+        private readonly loggerService: LoggerService
+    ) {
+        this.logger = this.loggerService.getLogger(CacheService.name);
+    }
 
     async getFromCacheOrFetch<T>(
         cacheService: Redis,
@@ -27,7 +34,7 @@ export class CacheService {
             );
             return data;
         } catch (err) {
-            console.warn(`Failed to find data from cache with key: [${cacheKey}]`, err);
+            this.logger.warn(`Failed to find data from cache with key: [${cacheKey}]`, err);
             return fetchFunction();
         }
     }

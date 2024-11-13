@@ -2,6 +2,7 @@ import { DynamicModule, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import Redis from 'ioredis';
 
+import { LoggerModule } from '@app/logger';
 import { EnvModule } from '@libs/env';
 
 import { CacheFactory } from './cache.factory';
@@ -11,6 +12,7 @@ export type RedisClient = Redis;
 
 @Module({
   imports: [
+    LoggerModule,
     EnvModule.register()
   ],
   providers: [

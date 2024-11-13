@@ -2,6 +2,8 @@ import { HttpService } from '@nestjs/axios';
 import { Inject, Injectable } from '@nestjs/common';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
+import { Logger, LoggerService } from '@app/logger';
+
 import { AviationStackConfig } from '../aviationstack.config';
 import { AviationStackConfig as AviationStackConfigInterface, AviationStackCoutries } from "../aviationstack.interface";
 import { AviationStackFetchError } from './aviationstack-requester.exceptions';
@@ -9,11 +11,16 @@ import { AviationStackEndpointSpec, AviationStackPaginatedResponse } from './avi
 
 @Injectable()
 export class AviationStackRequesterService {
+    private readonly logger: Logger;
+
     constructor(
         private readonly httpService: HttpService,
         @Inject(AviationStackConfig.KEY)
-        private readonly config: AviationStackConfigInterface
-    ) { }
+        private readonly config: AviationStackConfigInterface,
+        private readonly loggerService: LoggerService,
+    ) {
+        this.logger = this.loggerService.getLogger(AviationStackRequesterService.name);
+    }
 
     /**
      * Fetch/Send data
@@ -23,7 +30,7 @@ export class AviationStackRequesterService {
             url,
             method,
         } = endpointSpec;
-        console.info('endpointSpec', endpointSpec);
+        this.logger.log('endpointSpec', endpointSpec);
 
         // Check if URL already has query parameters
         const hasQueryParams = url.includes('?');
