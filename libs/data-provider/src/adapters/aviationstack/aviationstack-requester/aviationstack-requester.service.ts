@@ -1,11 +1,11 @@
+import { HttpService } from '@nestjs/axios';
 import { Inject, Injectable } from '@nestjs/common';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { AviationStackConfig } from '../aviationstack.config';
 import { AviationStackConfig as AviationStackConfigInterface, AviationStackCoutries } from "../aviationstack.interface";
-import { HttpService } from '@nestjs/axios';
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { AviationStackEndpointSpec, AviationStackPaginatedResponse } from './aviationstack-requester.interfaces';
 import { AviationStackFetchError } from './aviationstack-requester.exceptions';
+import { AviationStackEndpointSpec, AviationStackPaginatedResponse } from './aviationstack-requester.interfaces';
 
 @Injectable()
 export class AviationStackRequesterService {

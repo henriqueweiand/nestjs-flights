@@ -8,6 +8,7 @@ import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
 
 import { C_COUNTRIES_KEY } from './country.constants';
 import { Country } from './entities/country.entity';
+import { CacheService } from '@app/cache';
 
 @Injectable()
 export class CountryService {
@@ -16,6 +17,7 @@ export class CountryService {
     @InjectRepository(Country)
     private readonly countryRepository: Repository<Country>,
     @Inject(CACHE.C_COUNTRY) private readonly countryCache: Redis,
+    private readonly cacheService: CacheService
   ) { }
 
   async getCountries(): Promise<Country[]> {
@@ -41,23 +43,16 @@ export class CountryService {
   async _getAllCountriesFromCache(): Promise<Country[]> {
     const keys = await this.countryCache.keys(`${C_COUNTRIES_KEY}:*`);
 
-    const countries = await Promise.all(
-      keys.map(async (key) => {
-        const cachedCountry = await this.countryCache.get(key);
-        return JSON.parse(cachedCountry);
-      })
-    );
-
-    return countries;
+    return await this.cacheService.getAllDataFromCache<Country[]>(this.countryCache, keys);
   }
 
   async _findOrCreate(country: Country): Promise<Country> {
     let cacheKey = `${C_COUNTRIES_KEY}:${country.id}`;
 
     // Check if the data is in the cache
-    const cachedCountry = await this.countryCache.get(cacheKey);
+    const cachedCountry = await this.cacheService.getCache<Country>(this.countryCache, cacheKey);
     if (cachedCountry) {
-      return JSON.parse(cachedCountry);
+      return cachedCountry;
     }
 
     // Check if the data is in the database
@@ -74,7 +69,7 @@ export class CountryService {
 
     cacheKey = `${C_COUNTRIES_KEY}:${countryFromDb.id}`;
 
-    await this.countryCache.set(cacheKey, JSON.stringify(countryFromDb));
+    await this.cacheService.setCache(this.countryCache, cacheKey, countryFromDb);
 
     return countryFromDb;
   }
