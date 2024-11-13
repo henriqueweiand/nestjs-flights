@@ -8,6 +8,7 @@ import { CountryModule } from '@components/country';
 import { EnvModule } from '@libs/env';
 import { PersistenceModule } from '@libs/persistence';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
+import { AirportModule } from '@components/airport';
 
 const app = 'FLIGHTS';
 
@@ -20,7 +21,8 @@ const app = 'FLIGHTS';
     }),
     EnvModule.register(app),
     PersistenceModule.registerTypeOrm(app),
-    CountryModule
+    CountryModule,
+    AirportModule,
   ],
   controllers: [FlightsController],
   providers: [FlightsService],

@@ -1,6 +1,7 @@
 import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
 import { Injectable } from '@nestjs/common';
 
+import { Airport } from '@components/airport/entities/airport.entity';
 import { Country } from '@components/country/entities/country.entity';
 
 import { AviationStackRequesterService } from './aviationstack-requester/aviationstack-requester.service';
@@ -19,5 +20,11 @@ export class AviationStackModuleAdapter extends DataProviderAdapter {
     const countries = await this.aviationStackRequesterService.getCountries(true);
 
     return countries.map((country) => this.aviationStackModuleTransformer.transformCountries(country));
+  }
+
+  async getAirports(): Promise<Airport[]> {
+    const countries = await this.aviationStackRequesterService.getAirports(true);
+
+    return countries.map((airport) => this.aviationStackModuleTransformer.transformAirports(airport));
   }
 }

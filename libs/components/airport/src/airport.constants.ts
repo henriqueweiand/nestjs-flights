@@ -1,0 +1,1 @@
+export const C_AIRPORTS_KEY = 'airports';

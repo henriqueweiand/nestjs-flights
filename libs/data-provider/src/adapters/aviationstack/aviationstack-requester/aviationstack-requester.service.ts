@@ -5,7 +5,7 @@ import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Logger, LoggerService } from '@app/logger';
 
 import { AviationStackConfig } from '../aviationstack.config';
-import { AviationStackConfig as AviationStackConfigInterface, AviationStackCoutries } from "../aviationstack.interface";
+import { AviationStackAirports, AviationStackConfig as AviationStackConfigInterface, AviationStackCoutries } from "../aviationstack.interface";
 import { AviationStackFetchError } from './aviationstack-requester.exceptions';
 import { AviationStackEndpointSpec, AviationStackPaginatedResponse } from './aviationstack-requester.interfaces';
 
@@ -57,7 +57,7 @@ export class AviationStackRequesterService {
 
     async getCountries(getAll: boolean = false): Promise<AviationStackCoutries[]> {
         const limit = 100; // Maximum allowed value is 100 below Professional Plan and 1000 on and above Professional Plan. Default value is 100.
-        let allCountries: AviationStackCoutries[] = [];
+        let allData: AviationStackCoutries[] = [];
         let offset = 0;
         let total = 0;
 
@@ -67,7 +67,7 @@ export class AviationStackRequesterService {
                 url: `/countries?limit=${limit}&offset=${offset}`,
             });
 
-            allCountries = allCountries.concat(response.data.data);
+            allData = allData.concat(response.data.data);
             offset += limit;
             total = response.data.pagination.total;
 
@@ -76,7 +76,31 @@ export class AviationStackRequesterService {
             }
         } while (offset < total);
 
-        return allCountries;
+        return allData;
+    }
+
+    async getAirports(getAll: boolean = false): Promise<AviationStackAirports[]> {
+        const limit = 100; // Maximum allowed value is 100 below Professional Plan and 1000 on and above Professional Plan. Default value is 100.
+        let allData: AviationStackAirports[] = [];
+        let offset = 0;
+        let total = 0;
+
+        do {
+            const response = await this._fetch<AviationStackPaginatedResponse<AviationStackAirports[]>>({
+                method: 'GET',
+                url: `/airports?limit=${limit}&offset=${offset}`,
+            });
+
+            allData = allData.concat(response.data.data);
+            offset += limit;
+            total = response.data.pagination.total;
+
+            if (!getAll) {
+                break;
+            }
+        } while (offset < total);
+
+        return allData;
     }
 
 }

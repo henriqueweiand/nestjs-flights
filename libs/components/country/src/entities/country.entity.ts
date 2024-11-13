@@ -28,6 +28,12 @@ export class Country {
     @Column({ length: 12, name: 'external_id' })
     externalId: string;
 
+    @Column({ length: 12, name: 'country_iso2' })
+    countryIso2: string;
+
+    @Column({ length: 12, name: 'country_iso3' })
+    countryIso3: string;
+
     @Column({
         type: 'enum',
         enum: DataProviderEnum,

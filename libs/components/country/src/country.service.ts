@@ -14,7 +14,7 @@ import { Country } from './entities/country.entity';
 @Injectable()
 export class CountryService {
   private readonly logger: Logger;
-  private readonly useDataFrom: 'cache-database' | 'cache-provider' = 'cache-database';
+  private readonly useDataFrom: 'cache-database' | 'cache-provider' = 'cache-provider';
 
   constructor(
     private readonly dataProviderAdapter: DataProviderAdapter,

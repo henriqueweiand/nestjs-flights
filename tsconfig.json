@@ -36,6 +36,12 @@
       "@components/country/*": [
         "libs/components/country/src/*"
       ],
+      "@components/airport": [
+        "libs/components/airport/src"
+      ],
+      "@components/airport/*": [
+        "libs/components/airport/src/*"
+      ],
       "@app/data-provider": [
         "libs/data-provider/src"
       ],
