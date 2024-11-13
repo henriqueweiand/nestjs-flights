@@ -7,23 +7,23 @@ export class Country {
     @PrimaryGeneratedColumn('uuid', { name: 'id' })
     id: string;
 
-    @Column({ length: 255 })
-    capital: string;
+    @Column({ length: 255, nullable: true })
+    capital?: string;
 
-    @Column({ length: 12, name: 'currency_code' })
-    currencyCode: string;
+    @Column({ length: 12, name: 'currency_code', nullable: true })
+    currencyCode?: string;
 
-    @Column({ length: 12 })
+    @Column({ length: 32 })
     continent: string;
 
     @Column({ length: 255, name: 'country_name' })
     countryName: string;
 
-    @Column({ length: 255, name: 'currency_name' })
-    currencyName: string;
+    @Column({ length: 255, name: 'currency_name', nullable: true })
+    currencyName?: string;
 
-    @Column({ length: 12, name: 'phone_prefix' })
-    phonePrefix: string;
+    @Column({ length: 32, name: 'phone_prefix', nullable: true })
+    phonePrefix?: string;
 
     @Column({ length: 12, name: 'external_id' })
     externalId: string;

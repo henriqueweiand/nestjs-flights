@@ -16,7 +16,7 @@ export class AviationStackModuleAdapter extends DataProviderAdapter {
   }
 
   async getCountries(): Promise<Country[]> {
-    const countries = await this.aviationStackRequesterService.getCountries();
+    const countries = await this.aviationStackRequesterService.getCountries(true);
 
     return countries.map((country) => this.aviationStackModuleTransformer.transformCountries(country));
   }

@@ -25,9 +25,13 @@ export class AviationStackRequesterService {
         } = endpointSpec;
         console.info('endpointSpec', endpointSpec);
 
+        // Check if URL already has query parameters
+        const hasQueryParams = url.includes('?');
+        const urlWithAccessKey = `${url}${hasQueryParams ? '&' : '?'}access_key=${this.config.apiKey}`;
+
         const apiResponse = await this.httpService
             .axiosRef({
-                url: `${url}?access_key=${this.config.apiKey}`,
+                url: urlWithAccessKey,
                 baseURL: this.config.baseUrl,
                 method,
                 headers: {},
@@ -44,12 +48,28 @@ export class AviationStackRequesterService {
         return apiResponse;
     }
 
-    async getCountries(): Promise<AviationStackCoutries[]> {
-        const coutries = await this._fetch<AviationStackPaginatedResponse<AviationStackCoutries[]>>({
-            method: 'GET',
-            url: '/countries',
-        });
+    async getCountries(getAll: boolean = false): Promise<AviationStackCoutries[]> {
+        const limit = 100; // Maximum allowed value is 100 below Professional Plan and 1000 on and above Professional Plan. Default value is 100.
+        let allCountries: AviationStackCoutries[] = [];
+        let offset = 0;
+        let total = 0;
 
-        return coutries.data.data;
+        do {
+            const response = await this._fetch<AviationStackPaginatedResponse<AviationStackCoutries[]>>({
+                method: 'GET',
+                url: `/countries?limit=${limit}&offset=${offset}`,
+            });
+
+            allCountries = allCountries.concat(response.data.data);
+            offset += limit;
+            total = response.data.pagination.total;
+
+            if (!getAll) {
+                break;
+            }
+        } while (offset < total);
+
+        return allCountries;
     }
+
 }

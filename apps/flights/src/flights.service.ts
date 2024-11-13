@@ -8,6 +8,6 @@ export class FlightsService {
   ) { }
 
   getHello() {
-    return this.countryService.getCoutries()
+    return this.countryService.getCountries()
   }
 }

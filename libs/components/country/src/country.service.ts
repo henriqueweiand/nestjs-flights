@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import Redis from 'ioredis';
 import { Repository } from 'typeorm';
 
-import { CacheService } from '@app/cache';
 import { CACHE } from '@app/cache/cache.constants';
 import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
 
@@ -17,27 +16,66 @@ export class CountryService {
     @InjectRepository(Country)
     private readonly countryRepository: Repository<Country>,
     @Inject(CACHE.C_COUNTRY) private readonly countryCache: Redis,
-    private readonly cacheService: CacheService
   ) { }
 
-  // TODO: Implement pagination
-  async getCoutries() {
-    return this.cacheService.getFromCacheOrFetch(
-      this.countryCache,
-      C_COUNTRIES_KEY,
-      () => this.dataProviderAdapter.getCountries()
+  async getCountries(): Promise<Country[]> {
+    try {
+      const countries = await this._getAllCountriesFromCache();
+
+      if (!countries.length) {
+        const fetchedCountries = await this.dataProviderAdapter.getCountries();
+
+        await Promise.all(
+          fetchedCountries.map(async (country) => await this._findOrCreate(country))
+        );
+        return fetchedCountries;
+      }
+
+      return countries;
+    } catch (error) {
+      console.error('Error fetching countries:', error);
+      throw new Error('Failed to fetch countries');
+    }
+  }
+
+  async _getAllCountriesFromCache(): Promise<Country[]> {
+    const keys = await this.countryCache.keys(`${C_COUNTRIES_KEY}:*`);
+
+    const countries = await Promise.all(
+      keys.map(async (key) => {
+        const cachedCountry = await this.countryCache.get(key);
+        return JSON.parse(cachedCountry);
+      })
     );
+
+    return countries;
   }
 
-  async getCoutry() {
-    // is it in cache?
-    // is it in db?
-    // persist in db and cache
+  async _findOrCreate(country: Country): Promise<Country> {
+    let cacheKey = `${C_COUNTRIES_KEY}:${country.id}`;
 
-    return await this.dataProviderAdapter.getCountries()
-  }
+    // Check if the data is in the cache
+    const cachedCountry = await this.countryCache.get(cacheKey);
+    if (cachedCountry) {
+      return JSON.parse(cachedCountry);
+    }
 
-  async insertBulkCountries(countries: Country[]): Promise<Country[]> {
-    return await this.countryRepository.save(countries);
+    // Check if the data is in the database
+    let countryFromDb = await this.countryRepository.findOne({
+      where: {
+        countryName: country.countryName,
+        continent: country.continent
+      }
+    });
+
+    if (!countryFromDb) {
+      countryFromDb = await this.countryRepository.save(country);
+    }
+
+    cacheKey = `${C_COUNTRIES_KEY}:${countryFromDb.id}`;
+
+    await this.countryCache.set(cacheKey, JSON.stringify(countryFromDb));
+
+    return countryFromDb;
   }
 }

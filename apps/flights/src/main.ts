@@ -4,7 +4,10 @@ import { ConfigService } from '@nestjs/config';
 import { FlightsModule } from './flights.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(FlightsModule);
+  const app = await NestFactory.create(FlightsModule, {
+    snapshot: true,
+    abortOnError: false,
+  });
 
   const configService = app.get(ConfigService);
   const port = configService.getOrThrow('PORT');
