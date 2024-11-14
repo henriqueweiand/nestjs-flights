@@ -42,6 +42,9 @@ export class Airport {
     @Column({ length: 12, name: 'country_iso2' })
     countryIso2: string;
 
+    @Column({ length: 64, name: 'country_id', nullable: true })
+    countryId?: string;
+
     @Column({
         type: 'enum',
         enum: DataProviderEnum,

@@ -5,6 +5,7 @@ import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
 import { AviationStackRequesterModule } from './aviationstack-requester/aviationstack-requester.module';
 import { AviationStackModuleAdapter } from './aviationstack.adapter';
 import { AviationStackModuleTransformer } from './aviationstack.transformer';
+import { DataProviderEnricherModule } from '@app/data-provider/enricher/data-provider-enricher.module';
 
 @Module({})
 export class AviationStackModule {
@@ -12,7 +13,8 @@ export class AviationStackModule {
     return {
       module: AviationStackModule,
       imports: [
-        AviationStackRequesterModule
+        AviationStackRequesterModule,
+        DataProviderEnricherModule,
       ],
       providers: [
         {

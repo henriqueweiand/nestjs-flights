@@ -5,6 +5,6 @@ import { Airport } from '@components/airport/entities/airport.entity';
 
 @Injectable()
 export abstract class DataProviderAdapter {
-  abstract getCountries(): Promise<Country[]>;
-  abstract getAirports(): Promise<Airport[]>;
+  abstract getCountries(getAll?: boolean): Promise<Country[]>;
+  abstract getAirports(getAll?: boolean): Promise<Airport[]>;
 }

@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import Redis from 'ioredis';
 import { Repository } from 'typeorm';
 
-import { CacheService } from '@app/cache';
+import { CacheService, CacheStrategy } from '@app/cache';
 import { CACHE } from '@app/cache/cache.constants';
 import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
 import { Logger, LoggerService } from '@app/logger';
@@ -14,7 +14,6 @@ import { Airport } from './entities/airport.entity';
 @Injectable()
 export class AirportService {
   private readonly logger: Logger;
-  private readonly useDataFrom: 'cache-database' | 'cache-provider' = 'cache-provider';
 
   constructor(
     private readonly dataProviderAdapter: DataProviderAdapter,
@@ -27,14 +26,14 @@ export class AirportService {
     this.logger = this.loggerService.getLogger(AirportService.name);
   }
 
-  async getAirports(): Promise<Airport[]> {
+  async getAirports(dataStrategy: CacheStrategy = CacheStrategy.CACHE_DATABASE): Promise<Airport[]> {
     try {
       const countries = await this._getAllAirportsFromCache();
 
       if (!countries.length) {
         let fetchedCountries: Airport[];
 
-        if (this.useDataFrom === 'cache-provider') {
+        if (dataStrategy === CacheStrategy.CACHE_PROVIDER) {
           fetchedCountries = await this.dataProviderAdapter.getAirports();
         } else {
           fetchedCountries = await this._getAllAirportsFromDb();
@@ -54,20 +53,20 @@ export class AirportService {
     }
   }
 
-  async _getAllAirportsFromDb(): Promise<Airport[]> {
+  private async _getAllAirportsFromDb(): Promise<Airport[]> {
     this.logger.log('Getting data from the database');
 
     return await this.airportRepository.find();
   }
 
-  async _getAllAirportsFromCache(): Promise<Airport[]> {
+  private async _getAllAirportsFromCache(): Promise<Airport[]> {
     this.logger.log('Getting data from the cache');
     const keys = await this.airportCache.keys(`${C_AIRPORTS_KEY}:*`);
 
     return await this.cacheService.getAllDataFromCache<Airport[]>(this.airportCache, keys);
   }
 
-  async _findOrCreate(airport: Airport): Promise<Airport> {
+  private async _findOrCreate(airport: Airport): Promise<Airport> {
     let cacheKey = `${C_AIRPORTS_KEY}:${airport.id}`;
 
     // Check if the data is in the cache
@@ -80,7 +79,6 @@ export class AirportService {
     let airportFromDb = await this.airportRepository.findOne({
       where: {
         name: airport.name,
-        timezone: airport.timezone
       }
     });
 
