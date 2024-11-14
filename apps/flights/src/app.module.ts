@@ -1,14 +1,10 @@
 import { Module } from '@nestjs/common';
 
-import { FlightsController } from './flights.controller';
-import { FlightsService } from './flights.service';
-
 import { LoggerModule } from '@app/logger';
-import { CountryModule } from '@components/country';
 import { EnvModule } from '@libs/env';
 import { PersistenceModule } from '@libs/persistence';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
-import { AirportModule } from '@components/airport';
+import { FlightsModule } from './flights/flights.module';
 
 const app = 'FLIGHTS';
 
@@ -21,10 +17,7 @@ const app = 'FLIGHTS';
     }),
     EnvModule.register(app),
     PersistenceModule.registerTypeOrm(app),
-    CountryModule,
-    AirportModule,
+    FlightsModule,
   ],
-  controllers: [FlightsController],
-  providers: [FlightsService],
 })
-export class FlightsModule { }
+export class AppModule { }

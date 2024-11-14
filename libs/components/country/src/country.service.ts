@@ -106,22 +106,27 @@ export class CountryService {
       return cachedCountry;
     }
 
-    // Check if the data is in the database
-    let countryFromDb = await this.countryRepository.findOne({
-      where: {
-        countryName: country.countryName,
-        continent: country.continent
-      }
-    });
+    if (!country?.id) {
+      // Check if the data is in the database
+      let countryFromDb = await this.countryRepository.findOne({
+        where: {
+          countryName: country.countryName,
+          continent: country.continent
+        }
+      });
 
-    if (!countryFromDb) {
-      countryFromDb = await this.countryRepository.save(country);
+      if (!countryFromDb) {
+        countryFromDb = await this.countryRepository.save(country);
+      }
+
+      cacheKey = `${C_COUNTRIES_KEY}:${countryFromDb.id}`;
+      await this.cacheService.setCache(this.countryCache, cacheKey, countryFromDb);
+
+      return countryFromDb;
+    } else {
+      await this.cacheService.setCache(this.countryCache, cacheKey, country);
     }
 
-    cacheKey = `${C_COUNTRIES_KEY}:${countryFromDb.id}`;
-
-    await this.cacheService.setCache(this.countryCache, cacheKey, countryFromDb);
-
-    return countryFromDb;
+    return country;
   }
 }

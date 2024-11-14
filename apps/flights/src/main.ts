@@ -1,10 +1,10 @@
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 
-import { FlightsModule } from './flights.module';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(FlightsModule, {
+  const app = await NestFactory.create(AppModule, {
     snapshot: true,
     abortOnError: false,
     bufferLogs: true,

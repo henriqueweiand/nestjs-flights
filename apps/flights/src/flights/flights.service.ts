@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { Logger, LoggerService } from '@app/logger';
 import { AirportService } from '@components/airport/airport.service';
 import { CountryService } from '@components/country/country.service';
+import { CacheStrategy } from '@app/cache';
 
 @Injectable()
 export class FlightsService {
@@ -17,10 +18,10 @@ export class FlightsService {
   }
 
   getCountries() {
-    return this.countryService.getCountries()
+    return this.countryService.getCountries(CacheStrategy.CACHE_PROVIDER)
   }
 
   getAirports() {
-    return this.airportService.getAirports()
+    return this.airportService.getAirports(CacheStrategy.CACHE_PROVIDER)
   }
 }

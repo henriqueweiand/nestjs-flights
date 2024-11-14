@@ -34,7 +34,6 @@ export class AviationStackModuleTransformer {
       gmt: aviationstackCountry.gmt,
       phoneNumber: aviationstackCountry.phone_number,
       countryName: aviationstackCountry.country_name,
-      countryIso2: aviationstackCountry.country_iso2,
       externalId: aviationstackCountry.id,
       provider: DataProviderEnum.AVIATION_STACK,
     });

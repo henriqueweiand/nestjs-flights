@@ -1,6 +1,7 @@
-import { Column, CreateDateColumn, DeepPartial, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeepPartial, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 import { DataProviderEnum } from "@app/data-provider/enums/data-provider.enum";
+import { Airport } from "@components/airport/entities/airport.entity";
 
 @Entity()
 export class Country {
@@ -33,6 +34,12 @@ export class Country {
 
     @Column({ length: 12, name: 'country_iso3' })
     countryIso3: string;
+
+    @OneToMany(() => Airport, airport => airport.country, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+    })
+    airports: Airport[];
 
     @Column({
         type: 'enum',

@@ -1,6 +1,7 @@
-import { Column, CreateDateColumn, DeepPartial, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeepPartial, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 import { DataProviderEnum } from "@app/data-provider/enums/data-provider.enum";
+import { Country } from "@components/country/entities/country.entity";
 
 @Entity()
 export class Airport {
@@ -34,16 +35,16 @@ export class Airport {
     @Column({ length: 12, name: 'external_id' })
     externalId: string;
 
-    // Temp field to use to related with countries
+    @ManyToOne(() => Country, country => country.airports, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+    })
+    @JoinColumn({ name: 'country_id', })
+    country: Country;
+
+    // Necessery fields to be able to search by country name later
     @Column({ length: 255, name: 'country_name', nullable: true })
     countryName?: string;
-
-    // Temp field to use to related with countries
-    @Column({ length: 12, name: 'country_iso2' })
-    countryIso2: string;
-
-    @Column({ length: 64, name: 'country_id', nullable: true })
-    countryId?: string;
 
     @Column({
         type: 'enum',

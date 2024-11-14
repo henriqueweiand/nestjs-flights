@@ -1,7 +1,6 @@
-import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
 import { Injectable } from '@nestjs/common';
 
-import { DataProviderEnricherService } from '@app/data-provider/enricher/data-provider-enricher.service';
+import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
 import { Airport } from '@components/airport/entities/airport.entity';
 import { Country } from '@components/country/entities/country.entity';
 
@@ -13,7 +12,6 @@ export class AviationStackModuleAdapter extends DataProviderAdapter {
   constructor(
     private readonly aviationStackRequesterService: AviationStackRequesterService,
     private readonly aviationStackModuleTransformer: AviationStackModuleTransformer,
-    private readonly dataProviderEnricherService: DataProviderEnricherService,
   ) {
     super();
   }
@@ -25,9 +23,8 @@ export class AviationStackModuleAdapter extends DataProviderAdapter {
   }
 
   async getAirports(getAll = true): Promise<Airport[]> {
-    const countries = await this.aviationStackRequesterService.getAirports(getAll);
+    const airports = await this.aviationStackRequesterService.getAirports(getAll);
 
-    // call dataProviderEnricherService here to enrich airports with countries
-    return countries.map((airport) => this.aviationStackModuleTransformer.transformAirports(airport));
+    return airports.map((airport) => this.aviationStackModuleTransformer.transformAirports(airport));
   }
 }
