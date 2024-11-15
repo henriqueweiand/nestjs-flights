@@ -36,6 +36,12 @@
       "@components/country/*": [
         "libs/components/country/src/*"
       ],
+      "@components/flight": [
+        "libs/components/flight/src"
+      ],
+      "@components/flight/*": [
+        "libs/components/flight/src/*"
+      ],
       "@components/airport": [
         "libs/components/airport/src"
       ],

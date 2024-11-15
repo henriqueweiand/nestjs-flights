@@ -35,3 +35,65 @@ export interface AviationStackAirports {
     country_iso2: string;
     city_iata_code: string;
 }
+
+export interface AviationStackFlights {
+    id: string;
+    flight_date: string;
+    flight_status: string;
+    departure: AviationStackDeparture;
+    arrival: AviationStackArrival;
+    airline: AviationStackAirline;
+    flight: AviationStackFlightDetails;
+    aircraft: AviationStackAircraft;
+}
+
+export interface AviationStackDeparture {
+    airport: string;
+    timezone: string;
+    iata: string;
+    icao: string;
+    terminal: string;
+    gate: string;
+    delay: string;
+    scheduled: string;
+    estimated: string;
+    actual: string;
+    estimated_runway: string;
+    actual_runway: string;
+}
+
+export interface AviationStackArrival {
+    airport: string;
+    timezone: string;
+    iata: string;
+    icao: string;
+    terminal: string;
+    gate: string;
+    baggage: string;
+    delay: string;
+    scheduled: string;
+    estimated: string;
+    actual: string | null;
+    estimated_runway: string | null;
+    actual_runway: string | null;
+}
+
+export interface AviationStackAirline {
+    name: string;
+    iata: string;
+    icao: string;
+}
+
+export interface AviationStackFlightDetails {
+    number: string;
+    iata: string;
+    icao: string;
+    codeshared: string | null;
+}
+
+export interface AviationStackAircraft {
+    registration: string;
+    iata: string;
+    icao: string;
+    icao24: string;
+}

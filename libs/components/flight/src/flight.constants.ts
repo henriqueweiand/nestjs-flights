@@ -1,0 +1,1 @@
+export const C_FLIGHTS_KEY = 'flights';

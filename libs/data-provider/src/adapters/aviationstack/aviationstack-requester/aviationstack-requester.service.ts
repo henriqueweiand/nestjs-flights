@@ -5,9 +5,10 @@ import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Logger, LoggerService } from '@app/logger';
 
 import { AviationStackConfig } from '../aviationstack.config';
-import { AviationStackAirports, AviationStackConfig as AviationStackConfigInterface, AviationStackCoutries } from "../aviationstack.interface";
+import { AviationStackAirports, AviationStackConfig as AviationStackConfigInterface, AviationStackCoutries, AviationStackFlights } from "../aviationstack.interface";
 import { AviationStackFetchError } from './aviationstack-requester.exceptions';
 import { AviationStackEndpointSpec, AviationStackPaginatedResponse } from './aviationstack-requester.interfaces';
+import { FlightQueryParams } from '@app/data-provider/data-provider.interface';
 
 @Injectable()
 export class AviationStackRequesterService {
@@ -101,6 +102,37 @@ export class AviationStackRequesterService {
         } while (offset < total);
 
         return allData;
+    }
+
+    async getFlights(getAll: boolean = false, params?: FlightQueryParams): Promise<AviationStackFlights[]> {
+        const limit = params.limit || 100; // Maximum allowed value is 100 below Professional Plan and 1000 on and above Professional Plan. Default value is 100.
+        let allData: AviationStackFlights[] = [];
+        let offset = params.offset || 0;
+        let total = 0;
+
+        do {
+            const queryString = this.buildQueryString({ ...params, limit, offset });
+            const response = await this._fetch<AviationStackPaginatedResponse<AviationStackFlights[]>>({
+                method: 'GET',
+                url: `/flights?${queryString}`,
+            });
+
+            allData = allData.concat(response.data.data);
+            offset += limit;
+            total = response.data.pagination.total;
+
+            if (!getAll) {
+                break;
+            }
+        } while (offset < total);
+
+        return allData;
+    }
+
+    private buildQueryString(params: FlightQueryParams): string {
+        return Object.entries(params)
+            .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+            .join('&');
     }
 
 }

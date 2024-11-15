@@ -53,6 +53,15 @@
         "tsConfigPath": "libs/components/airport/tsconfig.lib.json"
       }
     },
+    "flight": {
+      "type": "library",
+      "root": "libs/components/flight",
+      "entryFile": "index",
+      "sourceRoot": "libs/components/flight/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/components/flight/tsconfig.lib.json"
+      }
+    },
     "data-provider": {
       "type": "library",
       "root": "libs/data-provider",
