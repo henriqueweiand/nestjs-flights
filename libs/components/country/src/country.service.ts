@@ -54,7 +54,7 @@ export class CountryService {
   }
 
   /**
-   * Get a country by name or iso2 - look for the country in the cache otherwise look for it in the database
+   * Get a country by name - look for the country in the cache otherwise look for it in the database
    * @param countryName - The name of the country
    */
   async getCountryByName(countryName: string): Promise<Country | null> {

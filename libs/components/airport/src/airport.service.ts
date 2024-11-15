@@ -7,10 +7,10 @@ import { CacheService, CacheStrategy } from '@app/cache';
 import { CACHE } from '@app/cache/cache.constants';
 import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
 import { Logger, LoggerService } from '@app/logger';
+import { CountryService } from '@components/country/country.service';
 
 import { C_AIRPORTS_KEY } from './airport.constants';
 import { Airport } from './entities/airport.entity';
-import { CountryService } from '@components/country/country.service';
 
 @Injectable()
 export class AirportService {
@@ -84,7 +84,6 @@ export class AirportService {
           where: {
             name: airport.name,
           },
-          relations: ['country'],
         });
 
         if (!airportFromDb) {
