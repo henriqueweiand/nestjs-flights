@@ -20,11 +20,11 @@ export class FlightsService {
   }
 
   getCountries() {
-    return this.countryService.getCountries(CacheStrategy.CACHE_PROVIDER)
+    return this.countryService.getCountries()
   }
 
   getAirports() {
-    return this.airportService.getAirports(CacheStrategy.CACHE_PROVIDER)
+    return this.airportService.getAirports()
   }
 
   getFlights() {

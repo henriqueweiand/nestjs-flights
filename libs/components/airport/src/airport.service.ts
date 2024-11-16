@@ -36,7 +36,7 @@ export class AirportService {
         let fetchedCountries: Airport[];
 
         if (dataStrategy === CacheStrategy.CACHE_PROVIDER) {
-          fetchedCountries = await this.dataProviderAdapter.getAirports(true);
+          fetchedCountries = await this.dataProviderAdapter.getAirports(false);
         } else {
           fetchedCountries = await this._getAllAirportsFromDb();
         }

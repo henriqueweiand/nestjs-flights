@@ -1349,7 +1349,6 @@
 "6d417d76-7a6d-4f3a-8fc8-fa9d643c5cce","Changsha","CSX","ZGHA","28.193336","113.21459","Asia/Shanghai","8",,"1524074","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
 "1eea2cef-6dd7-4c53-a148-19ab2adb6294","Le Castellet","CTT","LFMQ","43.25","5.783333","Europe/Paris","1",,"1524096","France","AVIATION_STACK","6e516e79-42c0-40ae-ba7e-2f1e6968639b"
 "72c96ab4-1027-487e-ad6a-cf11c655bdd9","Fedl De Bachigualato","CUL","MMCL","24.76643","-107.46958","America/Mazatlan","-7",,"1524113","Mexico","AVIATION_STACK","0fcc7e92-085f-40e0-9ae1-3a2ece0efcb4"
-"3aded6ba-94eb-44e7-aa32-5c4d4d48baa9","Hato International Airport","CUR","TNCC","12.184615","-68.95706","America/Curacao","-4",,"1524119","Curaçao","AVIATION_STACK",
 "114c1352-d481-4c6b-a7d5-2f5fd0c67358","General Mariano Matamoros Airport","CVJ","MMCB","18.916668","-99.25","America/Mexico_City","-6",,"1524136","Mexico","AVIATION_STACK","0fcc7e92-085f-40e0-9ae1-3a2ece0efcb4"
 "430632bb-a2ca-4f94-9bed-efde8008adf5","Afonso Pena International Airport","CWB","SBCT","-25.5322","-49.176544","America/Sao_Paulo","-3",,"1524146","Brazil","AVIATION_STACK","b77b0245-6daf-4abf-ac1a-85351d347cca"
 "d106f20a-48dd-4d33-b80f-2893db4575af","Caicara Del Orinoco","CXA","SVCD","7.533333","-66.15","America/Caracas","-4",,"1524159","Venezuela","AVIATION_STACK","8717d567-cf61-4b9f-98cc-bc65e87f0e1d"
@@ -4465,7 +4464,6 @@
 "8a6c3ebe-5009-43b6-84ac-e73f308b0b85","Rumjatar","RUM","VNRT","27.316668","86.53333","Asia/Kathmandu","5.45",,"1529398","Nepal","AVIATION_STACK","cee64d52-c24e-4eb4-b5ba-9014e43923d3"
 "578edb9f-ff44-48e6-9329-1d0e5cb5b5a6","Jasionka","RZE","EPRZ","50.11525","22.03133","Europe/Warsaw","1",,"1529434","Poland","AVIATION_STACK","3befb9ee-8029-47d1-aaaf-c0d61051dd67"
 "ee4ceb18-43f7-4261-b956-27276bbf9382","Sawu","SAU","WATS","-10.483333","121.9","Asia/Makassar","8",,"1529455","Indonesia","AVIATION_STACK","e2f082ea-c580-41ff-abb6-df16c3a3954f"
-"0b026e20-7288-4790-ae8e-f217f83adf85","Gustaf III (St-Jean)","SBH","TFFJ","17.9","-62.85","America/St_Barthelemy","-4",,"1529468","Saint Barthélemy","AVIATION_STACK",
 "470fe75a-35c2-4bab-8989-d07d0d55a223","Sibu","SBW","WBGS","2.254997","111.98657","Asia/Kuching","8",,"1529482","Malaysia","AVIATION_STACK","e157123b-1745-48c1-af35-b74aa47ff352"
 "c79ae6f4-aa03-42ca-a875-1dd2da76b012","Scottsdale Municipalcipal","SCF","KSDL","33.61667","-111.916664","America/Phoenix","-7",,"1529491","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "fec14e23-187a-4acf-a940-4351a1371bc2","Salcea","SCV","LRSV","47.689445","26.356112","Europe/Bucharest","2",,"1529506","Romania","AVIATION_STACK","2e7dc29c-03b3-4809-bbbc-c221ad743df3"
@@ -5630,6 +5628,7 @@
 "d7752bce-95e5-4ba3-bd23-a89f26159cec","Westerly State","WST","KWST","41.350193","-71.8069","America/New_York","-5",,"1531140","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "fd34e1f0-6dfe-49f5-8fde-198e66435cb3","Newtok","WWT","PAEW","60.92278","-164.6486","America/Anchorage","-9",,"1531180","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "364445ae-1d1b-4d17-9503-335b2bb59979","Al Udeid AB","XJD","OTBH","25.11667","51.3","Asia/Qatar","3",,"1531353","Qatar","AVIATION_STACK","a2809057-d824-4a5f-8634-faba8df2b5af"
+"5b302035-2225-49a3-9011-30b08696af93","Varna","VAR","LBWN","43.23726","27.829096","Europe/Sofia","2",,"1530776","Bulgaria","AVIATION_STACK","d0201425-878e-4473-b781-fdff944ffe3f"
 "4e8a2a34-7646-4be7-a002-8c800f26d669","Britton Municipal Airport","TTO","KBTN","45.8","-97.75","America/Chicago","-6",,"1530483","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "c50012f3-e0e2-411d-8145-e1ae4eec3431","Taupo","TUO","NZAP","-38.741432","176.08235","Pacific/Auckland","12",,"1530504","New Zealand","AVIATION_STACK","f870b1b0-d55e-444e-a346-3a6e0dbe0ae1"
 "527338dc-62e8-4b44-904f-07eaf4f7ef75","Thomasville Municipal Airport","TVI","KTVI","30.9025","-83.880554","America/New_York","-5",,"1530517","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
@@ -5825,7 +5824,6 @@
 "678646f2-802c-4068-a384-2df4178f7b5c","Gillies Bay","YGB","CYGB","49.7","-124.53333","America/Vancouver","-8",,"1531764","Canada","AVIATION_STACK","4065c71b-97af-4537-8271-57e977b4d5d6"
 "728ac1ff-7136-4add-9b75-5d8b4251d0c6","Kingston","YGK","CYGK","44.219513","-76.59366","America/Toronto","-5",,"1531770","Canada","AVIATION_STACK","4065c71b-97af-4537-8271-57e977b4d5d6"
 "c5a0274f-5f08-45ca-a075-4ce9016ed7cf","John C. Munroe","YHM","CYHM","43.16138","-79.92631","America/Toronto","-5",,"1531793","Canada","AVIATION_STACK","4065c71b-97af-4537-8271-57e977b4d5d6"
-"5b302035-2225-49a3-9011-30b08696af93","Varna","VAR","LBWN","43.23726","27.829096","Europe/Sofia","2",,"1530776","Bulgaria","AVIATION_STACK","d0201425-878e-4473-b781-fdff944ffe3f"
 "ed6ae877-22e6-4830-a212-1d3d3a643ee0","Can Tho","VCA","VVCT","10.047222","105.76639","Asia/Ho_Chi_Minh","7",,"1530787",,"AVIATION_STACK","ccb14ecd-439c-47f7-9a08-ebefd9ad0d6e"
 "804cb880-7646-462d-b9d7-82f2b2e1be06","County-Foster","VCT","KVCT","28.85111","-96.914444","America/Chicago","-6",,"1530797","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "65ea8619-3dc4-4671-b96d-4169b7e59afc","Villa Dolores","VDR","SAOD","-31.94111","-65.14222","America/Argentina/Cordoba","-3",,"1530807","Argentina","AVIATION_STACK","6d3094c0-e4ef-4bd8-8f9c-18e5669f3790"
@@ -6161,10 +6159,6 @@
 ","BUU","WIPI","-1.1278","102.135",,"7",,"1532593","Indonesia","AVIATION_STACK","e2f082ea-c580-41ff-abb6-df16c3a3954f"
 "9d5ceb65-92a2-48b8-aa84-bd2fa21a5706","Ciudad Real Central Airport
 ","CQM","LERL","38.8563888889","-3.97",,"1",,"1532601","Spain","AVIATION_STACK","707de7e1-d598-41e5-a336-0bcc2f55468f"
-"23bdcadd-1640-4bdf-b25f-b2451cf723c3","Dr Ferdinand Lumban Tobing Airport
-","FLZ","WIMS
-","1.55594","98.888901",,"7",,"1532616","Indonesia
-","AVIATION_STACK",
 "a7cbaa56-36f6-4627-86d0-46088c8d0294","Gostomel Airport","GML","UKKM","50.6035003","30.1919",,"2",,"1532625","Ukraine","AVIATION_STACK","df0be3de-edf3-433c-b4bb-fe8d927155dd"
 "8126be6e-9f9d-4f7a-a49b-c1633cc9fd47","Água Boa Airport
 ","GGB","SWHP","-14.02531","-52.15432",,"-4",,"1532622","Brazil","AVIATION_STACK","b77b0245-6daf-4abf-ac1a-85351d347cca"
@@ -6304,9 +6298,6 @@
 "98d29425-3e9a-440b-85e5-c11f67d68b46","Andapa","ZWA","FMND","-14.65","49.61667","Indian/Antananarivo","3",,"1532524","Madagascar","AVIATION_STACK","f690595e-b66b-4447-acfd-86ccbd8a4e72"
 "81f13627-527f-4b72-8b13-8e50cb07220f","Zanesville","ZZV","KZZV","39.933334","-82.01667","America/New_York","-5",,"1532580","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "62ab6fcc-f95f-426e-85df-af47624bc7c1","Kannur International Airport","CNN","VOKN","11.915858","75.55094","Asia/Kolkata","5:30",,"1532581","India","AVIATION_STACK","ec5a7952-9c40-475b-b411-8faeb2b60cf9"
-"3816c2ed-8600-4e62-883e-6746346d464f","Columbus Metropolitan Airport
-","CSG","KCSG","32.5163002014","-84.9389038086",,"-5",,"1532602","United States
-","AVIATION_STACK",
 "5b1c8e1c-92be-4065-ab67-a6099a9a334e","Ramon Airport
 ","ETM","LLER","29.723694","35.011416",,"2",,"1532615","Israel","AVIATION_STACK","e2ac2b1a-153b-4b71-8af7-fbdd1c8bb1dd"
 "2c771970-a936-400d-8a36-4a64d88c0616","Golog Maqin Airport","GMQ","ZLGL","34.418066","100.301144",,"8",,"1532626","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
@@ -6314,10 +6305,6 @@
 "8365bb27-9e6c-4ae4-b543-8f8d48580525","Madison Municipal Airport","IMS","KIMS","33.61233","-83.46167",,"-5",,"1532643","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "cfe2ea2d-019b-4521-b1f2-abee6453cc32","Issyk-Kul International Airport
 ","IKU","UAFL","42.58792","76.713046",,"6",,"1532640","Kyrgyzstan","AVIATION_STACK","fdb37697-dfd1-4bcd-87b3-f7a72d58a879"
-"d3fe159b-1089-4500-b1fe-383ef07a30c2","Silampari Airport","LLJ","WIPB","-3.28","102.917222",,"9",,"1532660","Indonesia
-","AVIATION_STACK",
-"274a416a-2a59-4105-bdca-19de10d00939","Letung Airport","LMU","WIDL","2.964167","105.754444",,"7",,"1532663","Indonesia
-","AVIATION_STACK",
 "e076c3f2-64a3-4dcb-ab6c-2effac222a83","Maafaru International Airport","NMF","VRDA","5.822222","5.822222",,"5",,"1532672","Maldives","AVIATION_STACK","d666e74a-bdbb-4164-840d-24da93a3dd76"
 "16c8e85a-6275-4470-8d84-3d255d01bc2d","Reichelsheim Airport","QER","EDFB","50.33583","8.87805",,"1",,"1532695","Germany","AVIATION_STACK","2bb98ce7-2dd8-44f2-85da-80fdbf18f82a"
 "30d12163-c301-4a0f-9298-93fdfa7c29a0","Pribram Airport","QEP","LKPM","49.7201","14.1006",,"1",,"1532694","Czechia","AVIATION_STACK",
@@ -6326,12 +6313,14 @@
 "98d746c7-c5c9-479e-a3cc-65899449f521","Scandinavian Mountains Airport","SCR","ESKS","61.159","12.84",,"1",,"1532724","Sweden","AVIATION_STACK","ec47b8c0-c59e-476a-8ba9-b17ff716d3e8"
 "2c929179-de51-4b3a-80a7-129741bc2280","Thimarafushi Airport","TMF","VRNT","2.211","73.1533",,"6",,"1532733","Maldives","AVIATION_STACK","d666e74a-bdbb-4164-840d-24da93a3dd76"
 "74ef32b6-a4af-4d9d-9417-3194e35f9eca","Teruel Airport","TEV","LETL","40.411944","-1.2175",,"1",,"1532730","Spain","AVIATION_STACK","707de7e1-d598-41e5-a336-0bcc2f55468f"
-"a3095533-e2df-4a16-9e0a-701dc4825fc8","Concord-Padgett Regional Airport","USA","KJQF","35.387778","-80.709167",,"-5",,"1532739","United States
-","AVIATION_STACK",
 "65660187-eed8-445b-a311-323017ec7db6","Zunyi Maotai Airport
 ","WMT","ZUMT","27.81638","106.33268",,"8",,"1532744","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
 "4638bacf-d2d3-44f7-b3bf-a92dd3ccd760","Chisasibi","YKU","CSU2","53.806824","-78.924065","America/Montreal","-5",,"1531847","Canada","AVIATION_STACK","4065c71b-97af-4537-8271-57e977b4d5d6"
 "bffe6b6d-2097-4e48-b87c-4b62b6485371","Kelowna Airport","YLW","CYLW","49.95154","-119.38139","America/Vancouver","-8",,"1531870","Canada","AVIATION_STACK","4065c71b-97af-4537-8271-57e977b4d5d6"
+"274a416a-2a59-4105-bdca-19de10d00939","Letung Airport","LMU","WIDL","2.964167","105.754444",,"7",,"1532663","Indonesia
+","AVIATION_STACK","e2f082ea-c580-41ff-abb6-df16c3a3954f"
+"a3095533-e2df-4a16-9e0a-701dc4825fc8","Concord-Padgett Regional Airport","USA","KJQF","35.387778","-80.709167",,"-5",,"1532739","United States
+","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "c170ee51-178e-4eba-a3df-a983f050373e","Fort Mcmurray","YMM","CYMM","56.65659","-111.22395","America/Edmonton","-7",,"1531884","Canada","AVIATION_STACK","4065c71b-97af-4537-8271-57e977b4d5d6"
 "5a0561ae-7905-4d90-a8a4-e4bc31483368","Mansons Landing SPB","YMU","CYMU","50.07145","-124.98369","America/Vancouver","-8",,"1531891","Canada","AVIATION_STACK","4065c71b-97af-4537-8271-57e977b4d5d6"
 "496b101c-ceaf-4346-855d-8dc574355da6","Yanji","YNJ","ZYYJ","42.885662","129.43936","Asia/Shanghai","8",,"1531905","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
@@ -6370,8 +6359,6 @@
 "c1f65b60-ef92-450d-892c-fcda920ccd63","Charleston Executive Airport","JZI","KJZI","32.700833","-80.002778",,"-5",,"1532652","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "248def1a-8fcc-4d4b-baa3-b4d7cbef1120","Longnan Chengzhou Airport","LNL","ZLLN","33.788","105.797",,"8",,"1532664","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
 "c9e536ea-3424-4e9b-95f0-94aef0db40d4","Monywar Airport","NYW","VYMY","22.221638","95.093479",,"6.5",,"1532674","Burma","AVIATION_STACK",
-"2c398ce0-c463-4db0-bbd6-5f9ce56440a0","Ralph Wenz Field","PWY","KPNA","42.79550171","-109.8069992",,"-7",,"1532683","United States
-","AVIATION_STACK",
 "f5151ac6-b5dd-4ea9-848f-caab3ecd5d2a","Kempen Airport","QEK","EHBD","51.254444","5.600833",,"1",,"1532692","Netherlands","AVIATION_STACK","382d1c2c-73e9-4a15-b259-f760406dfc61"
 "2e62c517-7156-4d14-8d45-4a5148b907cc","Annemasse Airport","QNJ","LFLI","46.192001","6.26839",,"1",,"1532701","France","AVIATION_STACK","6e516e79-42c0-40ae-ba7e-2f1e6968639b"
 "d260d126-565c-47a9-8504-5bf65d639771","Mount Comfort Airport","QQQ","KMQJ","39.84349823","-85.89710236",,"-5",,"1532710","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
@@ -6421,8 +6408,6 @@
 "b80befa0-351a-4a99-ad40-d83190a489be","Hazret Sultan International Airport","HSA","UAIT","43.311111","68.550278",,"6",,"1532636","Kazakhstan","AVIATION_STACK","5a8edc6a-6b7d-4f42-9d0f-7e61c5d25ab8"
 "bc398265-3f70-45f8-87ec-dd752ddfb1be","Kaili Airport","KJH","ZUKJ","26.972","107.988",,"8",,"1532655","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
 "9f33fd81-a69a-493f-81e3-9bb9e44bbe4b","Liupanshui Yuezhao Airport","LPF","ZUPS","26.609417","104.979",,"8",,"1532666","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
-"fee7b96b-abf6-4371-b8ad-be00fefd5b74","Maleo Airport","MOH","WAFO","-2.203333","121.660278",,"8",,"1532667","Indonesia
-","AVIATION_STACK",
 "a7cf4e02-73e4-4a88-bc28-b74b0211e26c","Comte. Rolim Adolfo Amaro State Airport","QDV","SBJD","-23.181667","-46.943611",,"-3",,"1532686","Brazil","AVIATION_STACK","b77b0245-6daf-4abf-ac1a-85351d347cca"
 "75edcc35-fc16-4d82-b8e1-8f8f70c585dc","Lasham Airport","QLA","EGHL","51.1871986389","-1.0334999",,,,"1532700","United Kingdom","AVIATION_STACK","a46bcca6-bf4e-4ef5-96cf-34abdab52b75"
 "a41c45ee-1678-403f-a729-cbe5888a9f87","Shache Airport ","QSZ","ZWSC","38.245","77.06",,"8",,"1532714","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
@@ -6503,8 +6488,6 @@
 "5fa35161-d7d6-434c-bf4a-ee088bfb22fe","Saratov Gagarin Airport","GSV","UWSG","51.71252","46.16881",,"4",,"1532627","Russia","AVIATION_STACK","29cc497e-9e0b-4a4b-91a4-35a043263dcf"
 "12fc8df8-edca-4bf0-a133-c485b858569b","Jaguaruna Regional Airport","JJG","SBJA","-28.675278","-49.060278",,"-3",,"1532647","Brazil","AVIATION_STACK","b77b0245-6daf-4abf-ac1a-85351d347cca"
 "6e91996f-4534-4b5a-b567-7163ba017751","Lanzhou Zhongchuan Airport","LHW","ZLLL","36.5152015686","103.620002747",,"8",,"1532659","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
-"9943d1f1-b8dc-45f6-af2d-6ad87cef37aa","Kaneohe Bay MCAS (Marion E. Carl Field) Airport","NGF","PHNG","21.4505004","-157.768",,"-10",,"1532668","United States
-","AVIATION_STACK",
 "60e8b916-63ed-4581-a608-901a8fce420f","Ordu Giresun Airport","OGU","LTCB","40.966047","38.080994",,"3",,"1532677","Turkey","AVIATION_STACK","7a0d562e-e2a1-4958-90f3-d9e4a31fb6e9"
 "6bfd7b8c-5bbb-4a3f-9b5a-ddc01c3c98c6","Boolgeeda Airport","OCM","YBGD","-22.54","117.275",,"8",,"1532676","Australia","AVIATION_STACK","74df1b2a-1a9c-4432-b8af-15bbedbe0016"
 "df99fd8c-88a6-4868-b684-c6dcb89ad0fc","Stadtlohn Vreden Airport","QEV","EDLS","51.9958343506","6.8405561447",,"1",,"1532697","Germany","AVIATION_STACK","2bb98ce7-2dd8-44f2-85da-80fdbf18f82a"
@@ -6538,8 +6521,6 @@
 "ce47da54-1f75-4933-b2ce-2bf851102751","Hoarafushi Airport","HRF","VRAH","6.980556","72.895833",,"5",,"1532635","Maldives","AVIATION_STACK","d666e74a-bdbb-4164-840d-24da93a3dd76"
 "3724f7b2-9fcc-4214-abf0-cdb29010d050","Iturup Airport","ITU","UHSI","45.256389","147.955833",,"11",,"1532644","Russia","AVIATION_STACK","29cc497e-9e0b-4a4b-91a4-35a043263dcf"
 "62712bf2-e735-4312-b1a2-7eb2aef2bfb9","Kastamonu Airport","KFS","LTAL","41.314201355","33.7957992554",,"3",,"1532653","Turkey","AVIATION_STACK","7a0d562e-e2a1-4958-90f3-d9e4a31fb6e9"
-"bd7d29cc-c151-4aa0-9395-d1cc317ebf42","Robert Atty Bessing Airport","LNU","WAQM","3.575278","116.619722",,"9",,"1532665","Indonesia
-","AVIATION_STACK",
 "69b6f044-d39e-469e-b25f-9b48c3b06c82","Nursultan Nazarbayev International Airport","NQZ","UACC","51.021944","71.466944",,"6",,"1532673","Kazakhstan","AVIATION_STACK","5a8edc6a-6b7d-4f42-9d0f-7e61c5d25ab8"
 "e65307c5-b735-4916-af24-ff184c239ad2","Pakyong Airport","PYG","VEPY","27.2325","88.588333",,"5.3",,"1532684","India","AVIATION_STACK","ec5a7952-9c40-475b-b411-8faeb2b60cf9"
 "5575759f-761b-42c3-a762-4d3de73eb5bc","Rendsburg Schachtholm Airport","QEX","EDXR","54.2200012207","9.5994443893",,"1",,"1532698","Germany","AVIATION_STACK","2bb98ce7-2dd8-44f2-85da-80fdbf18f82a"
@@ -6561,8 +6542,6 @@
 ","CJF","YCWA","-22.9666996002","118.81300354",,"8",,"1532600","Australia","AVIATION_STACK","74df1b2a-1a9c-4432-b8af-15bbedbe0016"
 "78df656b-94f7-4d15-8441-92b40ae9942e","Duqm International Airport
 ","DQM","OODQ","19.501944","57.634167",,"4",,"1532609","Oman","AVIATION_STACK","ad3882e1-2877-44b9-820b-8f56c973570f"
-"2a2e4ded-c51c-477b-9b10-5a840713d005","Giddings–Lee County Airport","GYB","KGYB","30.169167","-96.98",,"-6",,"1532629","United States
-","AVIATION_STACK",
 "6faf3426-ce6b-431b-a7df-5166a82d3898","Delingha Airport","HXD","ZLDL","37.125286","97.268658",,"8",,"1532638","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
 "f587534d-e442-4cff-a703-58056111f173","Jharsuguda Airport","JRG","VEJH","21.913333","84.050278",,"5.3",,"1532650","India","AVIATION_STACK","ec5a7952-9c40-475b-b411-8faeb2b60cf9"
 "b236c3c5-c69a-403d-9102-71dec41d7c3b","Lancang Jingmai Airport","JMJ","ZPJM","22.415833","99.786389",,"8",,"1532649","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
@@ -6582,14 +6561,10 @@
 "9e0e0ec5-cf20-4bf8-ab04-d84488cb946e","Jacarepaguá–Roberto Marinho Airport","RRJ","SBJR","-22.9875","-43.37",,"-3",,"1532802","Brazil","AVIATION_STACK","b77b0245-6daf-4abf-ac1a-85351d347cca"
 "eab26984-bbd3-49b3-90cc-bedbe130ac12","Fuyun Koktokay Airport
 ","FYN","ZWFY","46.804169","89.512006",,"8",,"1532619","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
-"0b2ba8cb-aad2-416c-9c0e-63ffbc057270","Wheeler-Sack Army Airfield","GTB","KGTB","44.05562","-75.71946",,"-5",,"1532628","United States
-","AVIATION_STACK",
 "039915b3-845f-43e9-bc44-61e3fd66c6ae","San Marcos Regional Airport","HYI","KHYI","29.892778","-97.863056",,"-6",,"1532639","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "5a9afd6b-b4a0-4033-a14a-351a8d381dba","Jiansanjiang Airport","JSJ","ZYJS","47.11","132.660278",,"8",,"1532651","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
 "28518779-b1a1-49f5-8e60-10af5ffa7e72","Sakhir Air Base","KHB","OBKH","26.034722","50.524444",,"3",,"1532654","Bahrain","AVIATION_STACK","acead3e1-a603-4fb7-b750-4c243d913505"
 "1ff4215e-1b7c-44cf-8a9e-4cae8269a71f","Nikolayevsk-na-Amure Airport","NLI","UHNN","53.154999","140.649994",,"10",,"1532671","Russia","AVIATION_STACK","29cc497e-9e0b-4a4b-91a4-35a043263dcf"
-"69a69ba0-d4ae-4ff8-bcd5-14af467893fe","Princeton Municipal Airport","PNM","KPNM","45.56","-93.608333",,"-5",,"1532682","United States
-","AVIATION_STACK",
 "f7425035-ed86-484d-a58a-ed8c83dd0bef","Leer Papenburg Airport","QEJ","EDWF","53.271592","7.44234",,"1",,"1532691","Germany","AVIATION_STACK","2bb98ce7-2dd8-44f2-85da-80fdbf18f82a"
 "bfd51a47-d35a-4b36-a42b-1ee1be575b00","Anoka County–Blaine Airport ","QQA","KANE","45.145","-93.210278",,"-6",,"1532702","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "689bb193-37bb-44a8-8cb2-e2a9d8914ca8","New Braunfels Regional Airport","QQZ","KBAZ","29.7045001984","-98.0421981812",,"-5",,"1532713","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
@@ -6604,8 +6579,6 @@
 "ece39355-6dfa-4087-baf0-b0b0a9fb0e34","Nyiregyhaza Airport","QEY","LHNY","47.98389","21.69232",,"1",,"1532798","Hungary","AVIATION_STACK","b8527975-b37a-40a0-815b-33fa2bb4d73e"
 "c09d162e-a22c-4fb9-b0ba-639ec5512b27","Chengdu Tianfu International Airport","TFU","ZUTF","30.319","104.445","Asia/Chongqing","8",,"1532814","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
 "5a552f9f-ae9e-48a0-9399-b348e5a20a13","Kishangarh Airport","KQH","VIKG","26.601473","74.814147",,"5.3",,"1532656","India","AVIATION_STACK","ec5a7952-9c40-475b-b411-8faeb2b60cf9"
-"083b53cb-f803-4acd-a5fb-5e8db5c8936f","Bua Airport","LLO","WAFD","-3.084722","120.245278",,"8",,"1532661","Indonesia
-","AVIATION_STACK",
 "d53f6d28-e7b0-4eb1-817f-790e1e8cffbc","Chengjisihan Airport","NZL","ZBZL","47.865833","122.767503",,"8",,"1532675","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
 "41c643e3-c99c-467e-ac82-09f7775cf154","Besançon – La Vèze Aerodrome","QBQ","LFQM","47.205278","6.080556",,"1",,"1532685","France","AVIATION_STACK","6e516e79-42c0-40ae-ba7e-2f1e6968639b"
 "ff60418f-cd56-4e6e-901c-7760126f9a00","Arlington Municipal Airport","QQG","KGKY","32.663898468","-97.0942993164",,"-6",,"1532707","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
@@ -6618,6 +6591,10 @@
 "c03f2be6-3f8b-4c17-9ec0-ef6ebb13e55d","Red Dog Airport","DGG","PADG","68.032222","-162.899167",,"-9",,"1532766","United States","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "7de8d73a-c98e-4c4e-b25f-bd6c3d7ff747","Mpanda Airport","NPY","HTMP","-6.355556","31.080556",,"3",,"1532783","Tanzania","AVIATION_STACK","269b3679-b4e9-4a98-ba84-36f86160147b"
 "d3a596d9-703b-413b-81bf-8e6d309270a2","London Elstree Aerodrome","QEE","EGTR","51.6557998657","-0.3258329928",,,,"1532790","United Kingdom","AVIATION_STACK","a46bcca6-bf4e-4ef5-96cf-34abdab52b75"
+"0b2ba8cb-aad2-416c-9c0e-63ffbc057270","Wheeler-Sack Army Airfield","GTB","KGTB","44.05562","-75.71946",,"-5",,"1532628","United States
+","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
+"69a69ba0-d4ae-4ff8-bcd5-14af467893fe","Princeton Municipal Airport","PNM","KPNM","45.56","-93.608333",,"-5",,"1532682","United States
+","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
 "21262ecc-2353-4ca5-80d1-b2232d62608b","Warsaw Babice Airport","QEB","EPBC","52.2685012817","20.9109992981",,"1",,"1532789","Poland","AVIATION_STACK","3befb9ee-8029-47d1-aaaf-c0d61051dd67"
 "cc434d04-deef-43f9-a688-786345f5f8e9","Mungalalu Truscott Airbase","TTX","YTST","-14.089722","126.380833",,"8",,"1532805","Australia","AVIATION_STACK","74df1b2a-1a9c-4432-b8af-15bbedbe0016"
 "7d832a84-e6c3-4875-b492-aa477deab800","Usharal Airport","USJ","UAAL","46.190278","80.831389",,"6",,"1532807","Kazakhstan","AVIATION_STACK","5a8edc6a-6b7d-4f42-9d0f-7e61c5d25ab8"
@@ -6635,9 +6612,6 @@
 "6b9f7348-fce4-4d0b-9454-270e1150957f","Gannan Xiahe Airport
 ","GXH","ZLXH","34.8105","102.6447",,"8",,"1532769","China","AVIATION_STACK","2e966fce-e42c-4300-a18a-4a823e63ceed"
 "3cad5d36-97fe-4065-9a6f-5806866a781f","Juruti Airport ","JRT","SNRJ","-2.186667","-56.090278",,"-3",,"1532778","Brazil","AVIATION_STACK","b77b0245-6daf-4abf-ac1a-85351d347cca"
-"ba160b65-31e2-4dc8-a313-e5cb71f72344","Offutt Air Force Base
-","OFF","KOFF","41.1183013916","-95.9124984741",,"-6",,"1532785","United States
-","AVIATION_STACK",
 "39bee14c-41b9-44bd-a129-96d1e6fe8b70","Svea Airport","QES","ENSA","77.8969444","16.725",,"1",,"1532796","Norway","AVIATION_STACK","3a2c9454-7cc9-448c-a874-720230ea5388"
 "7cf9a7c8-724f-45a4-811b-67fa1a134fa0","New Ulaanbaator International Airport","UBN","ZMCK","47.65","106.818889",,"8",,"1532806","Mongolia","AVIATION_STACK","bb43b000-d23b-4e46-95f6-26282b00cd5b"
 "4fa619d2-f258-4918-8f19-6b97cb180edc","Siem Reap Angkor International Airport","SAI","VDSA","13.369334","104.223289","Asia/Phnom_Penh","+07","(+855)(0)63 900 776","1532815","Cambodia","AVIATION_STACK","b576a0df-3044-42d2-bbe9-8cb4f4bd72c2"
@@ -6660,3 +6634,29 @@
 "b3d5fe21-ecb2-41fb-b22e-16d8bda78fe0","Norrtalje Mellingeholms Airport","QEM","ESSN","59.73279953","18.6963996887",,"1",,"1532793","Sweden","AVIATION_STACK","ec47b8c0-c59e-476a-8ba9-b17ff716d3e8"
 "0f36834e-d9c0-471b-b1c4-c524c1197e64","Windarling Airport","WRN","YWDG","-30.031667","119.39",,"8",,"1532810","Australia","AVIATION_STACK","74df1b2a-1a9c-4432-b8af-15bbedbe0016"
 "90835719-ef9f-4439-b00b-17470bc918b4","Wethersfield Airport","WXF","EGVT","51.971901","0.509444",,,,"1532811","United Kingdom","AVIATION_STACK","a46bcca6-bf4e-4ef5-96cf-34abdab52b75"
+"3aded6ba-94eb-44e7-aa32-5c4d4d48baa9","Hato International Airport","CUR","TNCC","12.184615","-68.95706","America/Curacao","-4",,"1524119","Curaçao","AVIATION_STACK","d5f1f208-13b0-43f6-a101-219f1ba93d45"
+"0b026e20-7288-4790-ae8e-f217f83adf85","Gustaf III (St-Jean)","SBH","TFFJ","17.9","-62.85","America/St_Barthelemy","-4",,"1529468","Saint Barthélemy","AVIATION_STACK","b258d50a-30e1-4a91-baf4-aa7847e98977"
+"23bdcadd-1640-4bdf-b25f-b2451cf723c3","Dr Ferdinand Lumban Tobing Airport
+","FLZ","WIMS
+","1.55594","98.888901",,"7",,"1532616","Indonesia
+","AVIATION_STACK","e2f082ea-c580-41ff-abb6-df16c3a3954f"
+"d3fe159b-1089-4500-b1fe-383ef07a30c2","Silampari Airport","LLJ","WIPB","-3.28","102.917222",,"9",,"1532660","Indonesia
+","AVIATION_STACK","e2f082ea-c580-41ff-abb6-df16c3a3954f"
+"fee7b96b-abf6-4371-b8ad-be00fefd5b74","Maleo Airport","MOH","WAFO","-2.203333","121.660278",,"8",,"1532667","Indonesia
+","AVIATION_STACK","e2f082ea-c580-41ff-abb6-df16c3a3954f"
+"bd7d29cc-c151-4aa0-9395-d1cc317ebf42","Robert Atty Bessing Airport","LNU","WAQM","3.575278","116.619722",,"9",,"1532665","Indonesia
+","AVIATION_STACK","e2f082ea-c580-41ff-abb6-df16c3a3954f"
+"083b53cb-f803-4acd-a5fb-5e8db5c8936f","Bua Airport","LLO","WAFD","-3.084722","120.245278",,"8",,"1532661","Indonesia
+","AVIATION_STACK","e2f082ea-c580-41ff-abb6-df16c3a3954f"
+"3816c2ed-8600-4e62-883e-6746346d464f","Columbus Metropolitan Airport
+","CSG","KCSG","32.5163002014","-84.9389038086",,"-5",,"1532602","United States
+","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
+"2c398ce0-c463-4db0-bbd6-5f9ce56440a0","Ralph Wenz Field","PWY","KPNA","42.79550171","-109.8069992",,"-7",,"1532683","United States
+","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
+"9943d1f1-b8dc-45f6-af2d-6ad87cef37aa","Kaneohe Bay MCAS (Marion E. Carl Field) Airport","NGF","PHNG","21.4505004","-157.768",,"-10",,"1532668","United States
+","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
+"2a2e4ded-c51c-477b-9b10-5a840713d005","Giddings–Lee County Airport","GYB","KGYB","30.169167","-96.98",,"-6",,"1532629","United States
+","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"
+"ba160b65-31e2-4dc8-a313-e5cb71f72344","Offutt Air Force Base
+","OFF","KOFF","41.1183013916","-95.9124984741",,"-6",,"1532785","United States
+","AVIATION_STACK","13f8c45a-6ed9-4acf-930e-e0518149fbcd"

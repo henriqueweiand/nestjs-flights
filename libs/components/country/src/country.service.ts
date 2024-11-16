@@ -34,7 +34,7 @@ export class CountryService {
         let fetchedCountries: Country[];
 
         if (dataStrategy === CacheStrategy.CACHE_PROVIDER) {
-          fetchedCountries = await this.dataProviderAdapter.getCountries();
+          fetchedCountries = await this.dataProviderAdapter.getCountries(true);
         } else {
           fetchedCountries = await this._getAllCountriesFromDb();
         }
