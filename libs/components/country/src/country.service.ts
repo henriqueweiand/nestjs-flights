@@ -57,7 +57,7 @@ export class CountryService {
    * Get a country by name - look for the country in the cache otherwise look for it in the database
    * @param countryName - The name of the country
    */
-  async getCountryByName(countryName: string): Promise<Country | null> {
+  async getOneByName(countryName: string): Promise<Country | null> {
     this.logger.log(`Looking for country with name: ${countryName}`);
 
     let country: Country | null = null;

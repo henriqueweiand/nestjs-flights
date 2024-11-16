@@ -4,10 +4,10 @@ import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
 import { FlightQueryParams } from '@app/data-provider/data-provider.interface';
 import { Airport } from '@components/airport/entities/airport.entity';
 import { Country } from '@components/country/entities/country.entity';
+import { Flight } from '@components/flight/entities/flight.entity';
 
 import { AviationStackRequesterService } from './aviationstack-requester/aviationstack-requester.service';
 import { AviationStackModuleTransformer } from './aviationstack.transformer';
-import { Flight } from '@components/flight/entities/flight.entity';
 
 @Injectable()
 export class AviationStackModuleAdapter extends DataProviderAdapter {

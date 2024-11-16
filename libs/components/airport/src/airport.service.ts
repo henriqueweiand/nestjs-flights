@@ -36,7 +36,7 @@ export class AirportService {
         let fetchedCountries: Airport[];
 
         if (dataStrategy === CacheStrategy.CACHE_PROVIDER) {
-          fetchedCountries = await this.dataProviderAdapter.getAirports(false);
+          fetchedCountries = await this.dataProviderAdapter.getAirports(true);
         } else {
           fetchedCountries = await this._getAllAirportsFromDb();
         }
@@ -87,7 +87,7 @@ export class AirportService {
         });
 
         if (!airportFromDb) {
-          const country = await this.countryService.getCountryByName(airport.countryName);
+          const country = await this.countryService.getOneByName(airport.countryName);
 
           airportFromDb = await this.airportRepository.save({
             ...airport,
@@ -107,5 +107,30 @@ export class AirportService {
     } catch (error) {
       this.logger.error('Error finding or creating airport:', error);
     }
+  }
+
+  /**
+   * Get one by name - look for the country in the cache otherwise look for it in the database
+   * @param name - The name of the country
+   */
+  async getOneByName(name: string): Promise<Airport | null> {
+    this.logger.log(`Looking for country with name: ${name}`);
+
+    let country: Airport | null = null;
+    let countriesInCache = await this._getAllAirportsFromDb();
+
+    country = countriesInCache.find(
+      (c) => c.countryName === name
+    );
+
+    if (!country) {
+      this.logger.log('Not found in the cache, looking in the database');
+
+      country = await this.airportRepository.findOne({
+        where: { name }
+      });
+    }
+
+    return country;
   }
 }

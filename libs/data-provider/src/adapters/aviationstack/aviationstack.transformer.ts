@@ -2,12 +2,13 @@ import { Injectable } from '@nestjs/common';
 
 import { Country } from '@components/country/entities/country.entity';
 
-import { AviationStackAirports, AviationStackArrival, AviationStackCoutries, AviationStackDeparture, AviationStackFlights } from './aviationstack.interface';
+import { AviationStackAircraft, AviationStackAirports, AviationStackArrival, AviationStackCoutries, AviationStackDeparture, AviationStackFlights } from './aviationstack.interface';
 import { DataProviderEnum } from '@app/data-provider/enums/data-provider.enum';
 import { Airport } from '@components/airport/entities/airport.entity';
 import { Flight } from '@components/flight/entities/flight.entity';
 import { Arrival } from '@components/flight/entities/arrival.entity';
 import { Departure } from '@components/flight/entities/departure.entity';
+import { aircraft } from '@components/flight/interfaces/flight.interface';
 
 @Injectable()
 export class AviationStackModuleTransformer {
@@ -44,23 +45,39 @@ export class AviationStackModuleTransformer {
 
   transformFlights(aviationstackCountry: AviationStackFlights): Flight {
     return new Flight({
-      externalId: aviationstackCountry.id,
-      date: aviationstackCountry.flight_date,
+      date: new Date(aviationstackCountry.flight_date),
       status: aviationstackCountry.flight_status,
       number: aviationstackCountry.flight.number,
       iata: aviationstackCountry.flight.iata,
       icao: aviationstackCountry.flight.icao,
       airline: aviationstackCountry.airline,
-      aircraft: aviationstackCountry.aircraft,
+      aircraft: this.transformAircraft(aviationstackCountry.aircraft),
       provider: DataProviderEnum.AVIATION_STACK,
       departure: this.transformDeparture(aviationstackCountry.departure),
       arrival: this.transformArrival(aviationstackCountry.arrival),
     });
   }
 
-  transformDeparture(aviationstackDeparture: AviationStackDeparture): Departure {
+  transformAircraft(aviationstackAircraft?: AviationStackAircraft): aircraft {
+    if (!aviationstackAircraft) {
+      return null;
+    }
+
+    return {
+      registration: aviationstackAircraft.registration,
+      iata: aviationstackAircraft.iata,
+      icao: aviationstackAircraft.icao,
+      icao24: aviationstackAircraft.icao24,
+    };
+  }
+
+  transformDeparture(aviationstackDeparture?: AviationStackDeparture): Departure {
+    if (!aviationstackDeparture) {
+      return null;
+    }
+
     return new Departure({
-      // airport: aviationstackDeparture.airport, // This field is populated later
+      airportName: aviationstackDeparture.airport,
       iata: aviationstackDeparture.iata,
       icao: aviationstackDeparture.icao,
       terminal: aviationstackDeparture.terminal,
@@ -75,9 +92,13 @@ export class AviationStackModuleTransformer {
     });
   }
 
-  transformArrival(aviationstackArrival: AviationStackArrival): Arrival {
+  transformArrival(aviationstackArrival?: AviationStackArrival): Arrival {
+    if (!aviationstackArrival) {
+      return null;
+    }
+
     return new Arrival({
-      // airport: aviationstackArrival.airport, // This field is populated later
+      airportName: aviationstackArrival.airport,
       iata: aviationstackArrival.iata,
       icao: aviationstackArrival.icao,
       terminal: aviationstackArrival.terminal,

@@ -15,4 +15,9 @@ export class FlightsController {
   getAirports() {
     return this.flightsService.getAirports();
   }
+
+  @Get('flights')
+  getFlights() {
+    return this.flightsService.getFlights();
+  }
 }

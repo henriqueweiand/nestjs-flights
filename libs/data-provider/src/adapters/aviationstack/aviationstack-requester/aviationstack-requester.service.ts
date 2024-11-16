@@ -105,9 +105,9 @@ export class AviationStackRequesterService {
     }
 
     async getFlights(getAll: boolean = false, params?: FlightQueryParams): Promise<AviationStackFlights[]> {
-        const limit = params.limit || 100; // Maximum allowed value is 100 below Professional Plan and 1000 on and above Professional Plan. Default value is 100.
+        const limit = params?.limit || 100; // Maximum allowed value is 100 below Professional Plan and 1000 on and above Professional Plan. Default value is 100.
         let allData: AviationStackFlights[] = [];
-        let offset = params.offset || 0;
+        let offset = params?.offset || 0;
         let total = 0;
 
         do {
@@ -129,7 +129,11 @@ export class AviationStackRequesterService {
         return allData;
     }
 
-    private buildQueryString(params: FlightQueryParams): string {
+    private buildQueryString(params?: FlightQueryParams): string {
+        if (!params) {
+            return '';
+        }
+
         return Object.entries(params)
             .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
             .join('&');

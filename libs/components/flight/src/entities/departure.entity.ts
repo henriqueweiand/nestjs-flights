@@ -1,6 +1,7 @@
-import { Column, CreateDateColumn, DeepPartial, Entity, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeepPartial, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 import { DataProviderEnum } from "@app/data-provider/enums/data-provider.enum";
+import { Airport } from "@components/airport/entities/airport.entity";
 
 import { Flight } from "./flight.entity";
 
@@ -31,20 +32,26 @@ export class Departure {
     @Column({ length: 32, name: 'baggage', nullable: true })
     baggage: string;
 
-    @Column({ type: 'datetime', name: 'scheduled', nullable: true })
+    @Column({ type: 'timestamp', name: 'scheduled', nullable: true })
     scheduled: Date;
 
-    @Column({ type: 'datetime', name: 'estimated', nullable: true })
+    @Column({ type: 'timestamp', name: 'estimated', nullable: true })
     estimated: Date;
 
-    @Column({ type: 'datetime', name: 'actual', nullable: true })
+    @Column({ type: 'timestamp', name: 'actual', nullable: true })
     actual: Date;
 
-    @Column({ type: 'datetime', name: 'estimated_runway', nullable: true })
+    @Column({ type: 'timestamp', name: 'estimated_runway', nullable: true })
     estimatedRunway: Date;
 
-    @Column({ type: 'datetime', name: 'actual_runway', nullable: true })
+    @Column({ type: 'timestamp', name: 'actual_runway', nullable: true })
     actualRunway: Date;
+
+    @Column({ length: 255, name: 'airport_name', nullable: true })
+    airportName?: string;
+
+    @ManyToOne(() => Airport, airport => airport.departures)
+    airport: Airport;
 
     @Column({
         type: 'enum',

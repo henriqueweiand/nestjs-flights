@@ -54,12 +54,12 @@ export class CacheService {
         return data as T;
     }
 
-    async setCache(cacheService: Redis, cacheKey: string, data: unknown): Promise<void> {
+    async setCache(cacheService: Redis, cacheKey: string, data: unknown, expiration?: number): Promise<void> {
         await cacheService.set(
             cacheKey,
             JSON.stringify(data),
             'EX',
-            this.configService.get<number>('CACHE_EXPIRATION', 3600)
+            expiration || this.configService.get<number>('CACHE_EXPIRATION', 3600)
         );
     }
 

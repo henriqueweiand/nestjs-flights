@@ -11,15 +11,15 @@ export class Flight {
     @PrimaryGeneratedColumn('uuid', { name: 'id' })
     id: string;
 
-    @OneToOne(() => Departure, departure => departure.flight, { nullable: true })
+    @OneToOne(() => Departure, departure => departure.flight, { nullable: true, cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     @JoinColumn({ name: 'departure_id' })
     departure: Departure;
 
-    @OneToOne(() => Arrival, arrival => arrival.flight, { nullable: true })
-    @JoinColumn({ name: 'departure_id' })
+    @OneToOne(() => Arrival, arrival => arrival.flight, { nullable: true, cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+    @JoinColumn({ name: 'arrival_id' })
     arrival: Arrival;
 
-    @Column({ length: 32, name: 'date' })
+    @Column({ type: 'date', name: 'date' })
     date: Date;
 
     @Column({ length: 32, name: 'status' }) // TODO: Change to enum
@@ -47,8 +47,8 @@ export class Flight {
     @Column({ type: 'json', nullable: true })
     aircraft: aircraft;
 
-    @Column({ length: 12, name: 'external_id' })
-    externalId: string;
+    @Column({ length: 12, name: 'external_id', nullable: true })
+    externalId?: string;
 
     @CreateDateColumn({ type: 'timestamptz', name: 'create_dtm' })
     createdDate?: Date;

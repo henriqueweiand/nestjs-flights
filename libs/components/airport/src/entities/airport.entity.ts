@@ -1,7 +1,9 @@
-import { Column, CreateDateColumn, DeepPartial, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeepPartial, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 import { DataProviderEnum } from "@app/data-provider/enums/data-provider.enum";
 import { Country } from "@components/country/entities/country.entity";
+import { Departure } from "@components/flight/entities/departure.entity";
+import { Arrival } from "@components/flight/entities/arrival.entity";
 
 @Entity()
 export class Airport {
@@ -45,6 +47,12 @@ export class Airport {
     // Necessery fields to be able to search by country name later
     @Column({ length: 255, name: 'country_name', nullable: true })
     countryName?: string;
+
+    @OneToMany(() => Departure, departure => departure.airport)
+    departures: Departure[];
+
+    @OneToMany(() => Arrival, arrival => arrival.airport)
+    arrivals: Arrival[];
 
     @Column({
         type: 'enum',

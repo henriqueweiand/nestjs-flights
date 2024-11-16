@@ -3,14 +3,15 @@ import { InjectRepository } from '@nestjs/typeorm';
 import Redis from 'ioredis';
 import { Repository } from 'typeorm';
 
-import { CacheService, CacheStrategy } from '@app/cache';
+import { CacheService } from '@app/cache';
 import { CACHE } from '@app/cache/cache.constants';
 import { DataProviderAdapter } from '@app/data-provider/data-provider.adapter';
 import { Logger, LoggerService } from '@app/logger';
-import { CountryService } from '@components/country/country.service';
+import { FlightQueryParams } from '@app/data-provider/data-provider.interface';
+import { AirportService } from '@components/airport/airport.service';
 
-import { C_FLIGHTS_KEY } from './flight.constants';
 import { Flight } from './entities/flight.entity';
+import { C_FLIGHTS_KEY } from './flight.constants';
 
 @Injectable()
 export class FlightService {
@@ -20,57 +21,55 @@ export class FlightService {
     private readonly dataProviderAdapter: DataProviderAdapter,
     @InjectRepository(Flight)
     private readonly flightRepository: Repository<Flight>,
-    @Inject(CACHE.C_AIRPORT) private readonly flightCache: Redis,
+    @Inject(CACHE.C_FLIGHT) private readonly flightCache: Redis,
     private readonly cacheService: CacheService,
     private readonly loggerService: LoggerService,
-    private readonly countryService: CountryService,
+    private readonly airportService: AirportService,
   ) {
     this.logger = this.loggerService.getLogger(FlightService.name);
   }
 
-  async Fetflights(dataStrategy: CacheStrategy = CacheStrategy.CACHE_DATABASE): Promise<Flight[]> {
+  private _generateSearchCacheKey(searchParams?: FlightQueryParams): string {
+    return `${C_FLIGHTS_KEY}:search:${searchParams ? JSON.stringify(searchParams) : 'none'}`;
+  }
+
+  private _generateFlightCacheKey(flight: Flight): string {
+    const date = flight.date instanceof Date ? flight.date : new Date(flight.date);
+    const formattedDate = date.toISOString().replace(/:/g, '-');
+    const departureIata = flight?.departure?.iata || 'unknown';
+
+    return `${C_FLIGHTS_KEY}:${flight.number}:${formattedDate}:${departureIata}`;
+  }
+
+  async getFlights(searchParams?: FlightQueryParams): Promise<Flight[]> {
+    this.logger.log('Fetching flights');
     try {
-      const countries = await this.FgetAllflightsFromCache();
+      const cacheKey = this._generateSearchCacheKey(searchParams);
+      const cachedFlights = await this.cacheService.getCache<Flight[]>(this.flightCache, cacheKey);
 
-      if (!countries.length) {
-        let fetchedCountries: Flight[];
-
-        if (dataStrategy === CacheStrategy.CACHE_PROVIDER) {
-          fetchedCountries = await this.dataProviderAdapter.getFlights(false);
-        } else {
-          fetchedCountries = await this.FgetAllflightsFromDb();
-        }
-
-        await Promise.all(
-          fetchedCountries.map(async (flight) => await this._findOrCreate(flight))
-        );
-        return fetchedCountries;
+      if (cachedFlights) {
+        this.logger.log('Using the data from the cache');
+        return cachedFlights;
       }
-      this.logger.log('Using the data from the cache');
 
-      return countries;
+      const fetchedFlights = await this.dataProviderAdapter.getFlights(false, searchParams);
+
+      await Promise.all(
+        fetchedFlights.map(async (flight) => await this._findOrCreate(flight))
+      );
+
+      await this.cacheService.setCache(this.flightCache, cacheKey, fetchedFlights, 1800); // TTL 30 minutes
+
+      return fetchedFlights;
     } catch (error) {
-      this.logger.error('Error fetching countries:', error);
-      throw new Error('Failed to fetch countries');
+      this.logger.error('Error fetching flights:', error);
+      throw new Error('Failed to fetch flights');
     }
-  }
-
-  private async FgetAllflightsFromDb(): Promise<Flight[]> {
-    this.logger.log('Getting data from the database');
-
-    return await this.flightRepository.find();
-  }
-
-  private async FgetAllflightsFromCache(): Promise<Flight[]> {
-    this.logger.log('Getting data from the cache');
-    const keys = await this.flightCache.keys(`${C_FLIGHTS_KEY}:*`);
-
-    return await this.cacheService.getAllDataFromCache<Flight[]>(this.flightCache, keys);
   }
 
   private async _findOrCreate(flight: Flight): Promise<Flight> {
     try {
-      let cacheKey = `${C_FLIGHTS_KEY}:${flight.id}`;
+      let cacheKey = this._generateFlightCacheKey(flight);
 
       // Check if the data is in the cache
       const Fachedflight = await this.cacheService.getCache<Flight>(this.flightCache, cacheKey);
@@ -78,34 +77,32 @@ export class FlightService {
         return Fachedflight;
       }
 
-      if (!flight?.id) {
-        // Check if the data is in the database
-        let flightFromDb = await this.flightRepository.findOne({
-          where: {
-            name: flight.name,
-          },
-        });
+      // Check if the data is in the database
+      let flightFromDb = await this.flightRepository.findOne({
+        where: {
+          number: flight.number,
+          date: flight.date,
+          departure: flight.departure,
+        },
+        relations: ['departure', 'arrival'],
+      });
 
-        if (!flightFromDb) {
-          const country = await this.countryService.getCountryByName(flight.countryName);
+      if (!flightFromDb) {
+        const airportDeparture = await this.airportService.getOneByName(flight.departure.airportName);
+        const airportArrival = await this.airportService.getOneByName(flight.arrival.airportName);
+        flight.departure.airport = airportDeparture || null;
+        flight.arrival.airport = airportArrival || null;
 
-          flightFromDb = await this.flightRepository.save({
-            ...flight,
-            country: country || null,
-          });
-        }
-
-        cacheKey = `${C_FLIGHTS_KEY}:${flightFromDb.id}`;
-        await this.cacheService.setCache(this.flightCache, cacheKey, flightFromDb);
-
-        return flightFromDb;
-      } else {
-        await this.cacheService.setCache(this.flightCache, cacheKey, flight);
+        flightFromDb = await this.flightRepository.save(flight);
       }
 
-      return flight;
+      cacheKey = this._generateFlightCacheKey(flightFromDb);
+      await this.cacheService.setCache(this.flightCache, cacheKey, flightFromDb);
+
+      return flightFromDb;
     } catch (error) {
-      this.logger.error('Error finding or creating flight:', error);
+      console.log('Error finding or creating flight:', flight, error);
+      this.logger.error('Error finding or creating flight: %o', error);
     }
   }
 }
