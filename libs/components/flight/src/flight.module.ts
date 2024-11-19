@@ -16,7 +16,7 @@ import { FlightService } from './flight.service';
   imports: [
     LoggerModule,
     AirportModule,
-    DataProviderModule.withAdapter(AviationStackModule.withCache()),
+    DataProviderModule.withAdapter(AviationStackModule.register()),
     TypeOrmModule.forFeature([Flight, Departure, Arrival]),
     CacheModule.register([CACHE.C_FLIGHT]),
   ],

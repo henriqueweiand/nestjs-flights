@@ -13,7 +13,7 @@ import { AviationStackModuleTransformer } from './aviationstack.transformer';
   ],
 })
 export class AviationStackModule {
-  static withCache(): DynamicModule {
+  static register(): DynamicModule {
     return {
       module: AviationStackModule,
       imports: [

@@ -12,7 +12,7 @@ import { Country } from './entities/country.entity';
 @Module({
   imports: [
     LoggerModule,
-    DataProviderModule.withAdapter(AviationStackModule.withCache()),
+    DataProviderModule.withAdapter(AviationStackModule.register()),
     TypeOrmModule.forFeature([Country]),
     CacheModule.register([CACHE.C_COUNTRY]),
   ],

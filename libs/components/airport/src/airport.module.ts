@@ -14,7 +14,7 @@ import { Airport } from './entities/airport.entity';
   imports: [
     LoggerModule,
     CountryModule,
-    DataProviderModule.withAdapter(AviationStackModule.withCache()),
+    DataProviderModule.withAdapter(AviationStackModule.register()),
     TypeOrmModule.forFeature([Airport]),
     CacheModule.register([CACHE.C_AIRPORT]),
   ],

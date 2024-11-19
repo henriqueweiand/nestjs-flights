@@ -33,19 +33,19 @@ export class Arrival {
     baggage: string;
 
     @Column({ type: 'timestamp', name: 'scheduled', nullable: true })
-    scheduled: Date;
+    scheduled?: Date;
 
     @Column({ type: 'timestamp', name: 'estimated', nullable: true })
-    estimated: Date;
+    estimated?: Date;
 
     @Column({ type: 'timestamp', name: 'actual', nullable: true })
-    actual: Date;
+    actual?: Date;
 
     @Column({ type: 'timestamp', name: 'estimated_runway', nullable: true })
-    estimatedRunway: Date;
+    estimatedRunway?: Date;
 
     @Column({ type: 'timestamp', name: 'actual_runway', nullable: true })
-    actualRunway: Date;
+    actualRunway?: Date;
 
     @Column({ length: 255, name: 'airport_name', nullable: true })
     airportName?: string;
