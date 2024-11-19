@@ -65,6 +65,12 @@
       ],
       "@app/logger/*": [
         "libs/logger/src/*"
+      ],
+      "@app/graphql": [
+        "libs/graphql/src"
+      ],
+      "@app/graphql/*": [
+        "libs/graphql/src/*"
       ]
     }
   }

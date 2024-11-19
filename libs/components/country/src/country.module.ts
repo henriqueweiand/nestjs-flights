@@ -8,6 +8,7 @@ import { LoggerModule } from '@app/logger';
 
 import { CountryService } from './country.service';
 import { Country } from './entities/country.entity';
+import { CountryResolver } from './country.resolver';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { Country } from './entities/country.entity';
     TypeOrmModule.forFeature([Country]),
     CacheModule.register([CACHE.C_COUNTRY]),
   ],
-  providers: [CountryService],
+  providers: [CountryService, CountryResolver],
   exports: [CountryService],
 })
 export class CountryModule { }

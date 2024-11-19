@@ -1,46 +1,60 @@
 import { Column, CreateDateColumn, DeepPartial, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Field, ObjectType } from "@nestjs/graphql";
 
 import { DataProviderEnum } from "@app/data-provider/enums/data-provider.enum";
 import { Airport } from "@components/airport/entities/airport.entity";
 
+@ObjectType()
 @Entity()
 export class Country {
+    @Field()
     @PrimaryGeneratedColumn('uuid', { name: 'id' })
     id: string;
 
+    @Field({ nullable: true })
     @Column({ length: 255, nullable: true })
     capital?: string;
 
+    @Field({ nullable: true })
     @Column({ length: 12, name: 'currency_code', nullable: true })
     currencyCode?: string;
 
+    @Field()
     @Column({ length: 32 })
     continent: string;
 
+    @Field()
     @Column({ length: 255, name: 'country_name' })
     countryName: string;
 
+    @Field({ nullable: true })
     @Column({ length: 255, name: 'currency_name', nullable: true })
     currencyName?: string;
 
+    @Field({ nullable: true })
     @Column({ length: 32, name: 'phone_prefix', nullable: true })
     phonePrefix?: string;
 
+    @Field()
     @Column({ length: 12, name: 'external_id' })
     externalId: string;
 
+    @Field()
     @Column({ length: 12, name: 'country_iso2' })
     countryIso2: string;
 
+    @Field()
     @Column({ length: 12, name: 'country_iso3' })
     countryIso3: string;
 
+    @Field(() => [Airport])
     @OneToMany(() => Airport, airport => airport.country, {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
     })
     airports: Airport[];
 
+    @Field(() => DataProviderEnum)
     @Column({
         type: 'enum',
         enum: DataProviderEnum,

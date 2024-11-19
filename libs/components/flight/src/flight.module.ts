@@ -11,6 +11,7 @@ import { Arrival } from './entities/arrival.entity';
 import { Departure } from './entities/departure.entity';
 import { Flight } from './entities/flight.entity';
 import { FlightService } from './flight.service';
+import { FlightResolver } from './flight.resolver';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { FlightService } from './flight.service';
     TypeOrmModule.forFeature([Flight, Departure, Arrival]),
     CacheModule.register([CACHE.C_FLIGHT]),
   ],
-  providers: [FlightService],
+  providers: [FlightService, FlightResolver],
   exports: [FlightService],
 })
 export class FlightModule { }

@@ -9,6 +9,7 @@ import { CountryModule } from '@components/country';
 
 import { AirportService } from './airport.service';
 import { Airport } from './entities/airport.entity';
+import { AirportResolver } from './airport.resolver';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { Airport } from './entities/airport.entity';
     TypeOrmModule.forFeature([Airport]),
     CacheModule.register([CACHE.C_AIRPORT]),
   ],
-  providers: [AirportService],
+  providers: [AirportService, AirportResolver],
   exports: [AirportService],
 })
 export class AirportModule { }
