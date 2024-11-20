@@ -49,13 +49,16 @@ export class Airport {
     @Column({ length: 12, name: 'external_id' })
     externalId: string;
 
-    @Field(() => Country)
+    @Field(() => Country, { nullable: true })
     @ManyToOne(() => Country, country => country.airports, {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
     })
+    country?: Country;
+
+    @Field({ nullable: true })
     @JoinColumn({ name: 'country_id', })
-    country: Country;
+    countryId?: string;
 
     // Necessery fields to be able to search by country name later
     @Field({ nullable: true })

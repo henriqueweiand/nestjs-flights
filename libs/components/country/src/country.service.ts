@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import Redis from 'ioredis';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 
 import { CacheService, CacheStrategy } from '@app/cache';
 import { CACHE } from '@app/cache/cache.constants';
@@ -54,6 +54,47 @@ export class CountryService {
   }
 
   /**
+   * Get a country by id - look for the countries in the cache otherwise look for it in the database
+   * @param countryIds - The id of the countries
+   */
+  async getCountriesByIds(countryIds: string[]): Promise<Country[] | null> {
+    this.logger.log(`Looking for countries with ids: ${countryIds}`);
+
+    let countries: Country[] = [];
+    let countriesInCache = await this._getAllCountriesFromCache();
+
+    // Filter countries that are in the cache
+    let cachedCountries = countriesInCache.filter(
+      (c) => countryIds.includes(c.id)
+    );
+
+    // Get the IDs of the countries that are not in the cache
+    let cachedCountryIds = cachedCountries.map(c => c.id);
+    let missingCountryIds = countryIds.filter(id => !cachedCountryIds.includes(id));
+
+    if (missingCountryIds.length) {
+      this.logger.log('Some countries not found in the cache, looking in the database');
+
+      let countriesFromDb = await this.countryRepository.find({
+        where: { id: In(missingCountryIds) }
+      });
+
+      // Update the cache with the newly fetched countries
+      countriesFromDb.map(async (country) => {
+        const cacheKey = `${C_COUNTRIES_KEY}:${country.id}`;
+        await this.cacheService.setCache(this.countryCache, cacheKey, country);
+      });
+
+      // Combine the results from the cache and the database
+      countries = [...cachedCountries, ...countriesFromDb];
+    } else {
+      countries = cachedCountries;
+    }
+
+    return countries;
+  }
+
+  /**
    * Get a country by name - look for the country in the cache otherwise look for it in the database
    * @param countryName - The name of the country
    */
@@ -73,6 +114,9 @@ export class CountryService {
       country = await this.countryRepository.findOne({
         where: { countryName }
       });
+
+      const cacheKey = `${C_COUNTRIES_KEY}:${country.id}`;
+      await this.cacheService.setCache(this.countryCache, cacheKey, country);
     }
 
     return country;

@@ -19,13 +19,13 @@ export class Country {
     @Column({ length: 12, name: 'currency_code', nullable: true })
     currencyCode?: string;
 
-    @Field()
+    @Field({ nullable: true })
     @Column({ length: 32 })
-    continent: string;
+    continent?: string;
 
-    @Field()
+    @Field({ nullable: true })
     @Column({ length: 255, name: 'country_name' })
-    countryName: string;
+    countryName?: string;
 
     @Field({ nullable: true })
     @Column({ length: 255, name: 'currency_name', nullable: true })
@@ -35,15 +35,15 @@ export class Country {
     @Column({ length: 32, name: 'phone_prefix', nullable: true })
     phonePrefix?: string;
 
-    @Field()
+    @Field({ nullable: true })
     @Column({ length: 12, name: 'external_id' })
     externalId: string;
 
-    @Field()
+    @Field({ nullable: true })
     @Column({ length: 12, name: 'country_iso2' })
     countryIso2: string;
 
-    @Field()
+    @Field({ nullable: true })
     @Column({ length: 12, name: 'country_iso3' })
     countryIso3: string;
 
