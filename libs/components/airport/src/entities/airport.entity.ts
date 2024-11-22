@@ -54,10 +54,11 @@ export class Airport {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
     })
+    @JoinColumn({ name: 'country_id', })
     country?: Country;
 
     @Field({ nullable: true })
-    @JoinColumn({ name: 'country_id', })
+    @Column({ name: 'country_id', nullable: true })
     countryId?: string;
 
     // Necessery fields to be able to search by country name later

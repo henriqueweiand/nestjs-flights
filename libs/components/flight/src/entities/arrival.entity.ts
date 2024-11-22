@@ -42,23 +42,23 @@ export class Arrival {
     @Column({ length: 32, name: 'baggage', nullable: true })
     baggage?: string;
 
-    @Field({ nullable: true })
+    @Field(() => String, { nullable: true })
     @Column({ type: 'timestamp', name: 'scheduled', nullable: true })
     scheduled?: Date;
 
-    @Field({ nullable: true })
+    @Field(() => String, { nullable: true })
     @Column({ type: 'timestamp', name: 'estimated', nullable: true })
     estimated?: Date;
 
-    @Field({ nullable: true })
+    @Field(() => String, { nullable: true })
     @Column({ type: 'timestamp', name: 'actual', nullable: true })
     actual?: Date;
 
-    @Field({ nullable: true })
+    @Field(() => String, { nullable: true })
     @Column({ type: 'timestamp', name: 'estimated_runway', nullable: true })
     estimatedRunway?: Date;
 
-    @Field({ nullable: true })
+    @Field(() => String, { nullable: true })
     @Column({ type: 'timestamp', name: 'actual_runway', nullable: true })
     actualRunway?: Date;
 

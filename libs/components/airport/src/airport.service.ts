@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import Redis from 'ioredis';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 
 import { CacheService, CacheStrategy } from '@app/cache';
 import { CACHE } from '@app/cache/cache.constants';

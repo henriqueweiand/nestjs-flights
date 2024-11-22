@@ -10,6 +10,7 @@ import { Logger, LoggerService } from '@app/logger';
 
 import { C_COUNTRIES_KEY } from './country.constants';
 import { Country } from './entities/country.entity';
+import { Airport } from '@components/airport/entities/airport.entity';
 
 @Injectable()
 export class CountryService {
@@ -24,6 +25,18 @@ export class CountryService {
     private readonly loggerService: LoggerService,
   ) {
     this.logger = this.loggerService.getLogger(CountryService.name);
+  }
+
+  async getAirportsByCountryIds(countryIds: string[]): Promise<Airport[] | null> {
+    const countries = await this.countryRepository.find({
+      where: {
+        id: In(countryIds)
+      },
+      relations: ['airports'],
+    });
+
+    const airports = countries.flatMap(country => country.airports);
+    return airports.length ? airports : null;
   }
 
   async getCountries(dataStrategy: CacheStrategy = CacheStrategy.CACHE_DATABASE): Promise<Country[]> {

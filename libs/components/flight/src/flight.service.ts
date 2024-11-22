@@ -11,7 +11,7 @@ import { FlightQueryParams } from '@app/data-provider/data-provider.interface';
 import { AirportService } from '@components/airport/airport.service';
 
 import { Flight } from './entities/flight.entity';
-import { C_FLIGHTS_KEY } from './flight.constants';
+import { C_FLIGHTS_KEY, C_SEARCH_FLIGHTS_KEY } from './flight.constants';
 
 @Injectable()
 export class FlightService {
@@ -30,7 +30,7 @@ export class FlightService {
   }
 
   private _generateSearchCacheKey(searchParams?: FlightQueryParams): string {
-    return `${C_FLIGHTS_KEY}:search:${searchParams ? JSON.stringify(searchParams) : 'none'}`;
+    return `${C_SEARCH_FLIGHTS_KEY}:${searchParams ? JSON.stringify(searchParams) : 'none'}`;
   }
 
   private _generateFlightCacheKey(flight: Flight): string {
@@ -49,18 +49,19 @@ export class FlightService {
 
       if (cachedFlights) {
         this.logger.log('Using the data from the cache');
-        return cachedFlights;
+        return cachedFlights.filter((flight) => flight.id);
       }
 
       const fetchedFlights = await this.dataProviderAdapter.getFlights(false, searchParams);
 
-      await Promise.all(
+      const processedFlights = await Promise.all(
         fetchedFlights.map(async (flight) => await this._findOrCreate(flight))
       );
+      const filteredFlights = processedFlights.filter((flight) => flight);
 
-      await this.cacheService.setCache(this.flightCache, cacheKey, fetchedFlights, 1800); // TTL 30 minutes
+      await this.cacheService.setCache(this.flightCache, cacheKey, filteredFlights, 1800); // TTL 30 minutes
 
-      return fetchedFlights;
+      return filteredFlights;
     } catch (error) {
       this.logger.error('Error fetching flights:', error);
       throw new Error('Failed to fetch flights');
@@ -68,6 +69,12 @@ export class FlightService {
   }
 
   private async _findOrCreate(flight: Flight): Promise<Flight> {
+
+    if (!flight.number || !flight.date || !flight.iata || !flight.icao) {
+      this.logger.error('Invalid flight data:', flight);
+      return null;
+    }
+
     try {
       let cacheKey = this._generateFlightCacheKey(flight);
 
