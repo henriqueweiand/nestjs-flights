@@ -48,6 +48,12 @@
       "@components/airport/*": [
         "libs/components/airport/src/*"
       ],
+      "@components/auth": [
+        "libs/components/auth/src"
+      ],
+      "@components/auth/*": [
+        "libs/components/auth/src/*"
+      ],
       "@app/data-provider": [
         "libs/data-provider/src"
       ],

@@ -7,6 +7,7 @@ import { PersistenceModule } from '@libs/persistence';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
 
 import { FlightsModule } from './flights/flights.module';
+import { AuthModule } from '@components/auth';
 
 const app = 'FLIGHTS';
 
@@ -20,7 +21,8 @@ const app = 'FLIGHTS';
     EnvModule.register(app),
     PersistenceModule.registerTypeOrm(app),
     FlightsModule,
-    GraphqlModule
+    GraphqlModule,
+    AuthModule
   ],
 })
 export class AppModule { }
