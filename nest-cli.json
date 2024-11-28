@@ -64,11 +64,11 @@
     },
     "auth": {
       "type": "library",
-      "root": "libs/components/auth",
+      "root": "libs/auth",
       "entryFile": "index",
-      "sourceRoot": "libs/components/auth/src",
+      "sourceRoot": "libs/auth/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/components/auth/tsconfig.lib.json"
+        "tsConfigPath": "libs/auth/tsconfig.lib.json"
       }
     },
     "data-provider": {

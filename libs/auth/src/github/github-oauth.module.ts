@@ -4,7 +4,7 @@ import { GithubOauthController } from './github-oauth.controller';
 import { GithubOauthStrategy } from './github-oauth.strategy';
 import { EnvModule } from '@libs/env';
 
-import { JwtModule } from '@components/auth/jwt/jwt.module';
+import { JwtModule } from '@app/auth/jwt/jwt.module';
 
 @Module({
 	imports: [

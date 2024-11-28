@@ -7,7 +7,7 @@ import { PersistenceModule } from '@libs/persistence';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
 
 import { FlightsModule } from './flights/flights.module';
-import { AuthModule } from '@components/auth';
+import { AuthModule } from '@app/auth';
 
 const app = 'FLIGHTS';
 
