@@ -27,7 +27,6 @@ export class GithubOauthController {
 		const user = req.user as User;
 
 		const { accessToken } = this.jwtService.login(user);
-		res.cookie('jwt', accessToken);
 		return { access_token: accessToken };
 	}
 }

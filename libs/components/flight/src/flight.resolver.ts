@@ -1,8 +1,11 @@
 import { Query, Resolver } from '@nestjs/graphql';
 
+import { JwtGuard } from '@app/auth/jwt/jwt.guard';
+import { Logger, LoggerService } from '@app/logger';
+import { UseGuards } from '@nestjs/common';
+
 import { Flight } from './entities/flight.entity';
 import { FlightService } from './flight.service';
-import { Logger, LoggerService } from '@app/logger';
 
 @Resolver(of => Flight)
 export class FlightResolver {
@@ -15,6 +18,7 @@ export class FlightResolver {
     this.logger = this.loggerService.getLogger(FlightResolver.name);
   }
 
+  @UseGuards(JwtGuard)
   @Query(returns => [Flight])
   async flights(): Promise<Flight[]> {
     return await this.flightService.getFlights();
