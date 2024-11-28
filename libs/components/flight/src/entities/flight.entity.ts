@@ -1,4 +1,4 @@
-import { Field, HideField, ObjectType } from "@nestjs/graphql";
+import { Field, ObjectType } from "@nestjs/graphql";
 import { Column, CreateDateColumn, DeepPartial, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 import { DataProviderEnum } from "@app/data-provider/enums/data-provider.enum";

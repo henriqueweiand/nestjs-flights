@@ -7,6 +7,8 @@ CREATE TABLE "migrations" (
     CONSTRAINT "PK_8c82d7f526340ab734260ea46be" PRIMARY KEY ("id")
 );
 
+ALTER SEQUENCE migrations_id_seq RESTART WITH 2;
+
 CREATE TYPE "public"."country_provider_enum" AS ENUM('AVIATION_STACK');
 
 CREATE TABLE "country" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "capital" character varying(255), "currency_code" character varying(12), "continent" character varying(32) NOT NULL, "country_name" character varying(255) NOT NULL, "currency_name" character varying(255), "phone_prefix" character varying(32), "external_id" character varying(12) NOT NULL, "country_iso2" character varying(12) NOT NULL, "country_iso3" character varying(12) NOT NULL, "provider" "public"."country_provider_enum" NOT NULL, "create_dtm" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(), "modify_dtm" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(), CONSTRAINT "PK_bf6e37c231c4f4ea56dcd887269" PRIMARY KEY ("id"));

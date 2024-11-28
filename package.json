@@ -102,6 +102,7 @@
       "^@components/country(|/.*)$": "<rootDir>/libs/components/country/src/$1",
       "^@components/airport(|/.*)$": "<rootDir>/libs/components/airport/src/$1",
       "^@components/flight(|/.*)$": "<rootDir>/libs/components/flight/src/$1",
+      "^@components/user(|/.*)$": "<rootDir>/libs/components/user/src/$1",
       "^@app/auth(|/.*)$": "<rootDir>/libs/auth/src/$1",
       "^@app/data-provider(|/.*)$": "<rootDir>/libs/data-provider/src/$1",
       "^@app/cache(|/.*)$": "<rootDir>/libs/cache/src/$1",

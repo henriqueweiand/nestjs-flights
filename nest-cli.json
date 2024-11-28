@@ -62,6 +62,15 @@
         "tsConfigPath": "libs/components/flight/tsconfig.lib.json"
       }
     },
+    "user": {
+      "type": "library",
+      "root": "libs/components/user",
+      "entryFile": "index",
+      "sourceRoot": "libs/components/user/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/components/user/tsconfig.lib.json"
+      }
+    },
     "auth": {
       "type": "library",
       "root": "libs/auth",
