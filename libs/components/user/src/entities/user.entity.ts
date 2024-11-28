@@ -20,13 +20,13 @@ export class User {
     @UpdateDateColumn({ type: 'timestamptz', name: 'modify_dtm' })
     modifiedDate?: Date;
 
-    @Field(() => FederatedIdentity)
+    @Field(() => [FederatedIdentity])
     @OneToMany(
         () => FederatedIdentity,
         federatedIdentity => federatedIdentity.user,
-        { onDelete: 'CASCADE', onUpdate: 'CASCADE', eager: true }
+        { onDelete: 'CASCADE', onUpdate: 'CASCADE', eager: true, cascade: true }
     )
-    federatedIdentity: FederatedIdentity
+    federatedIdentity: FederatedIdentity[]
 
     constructor(entity: DeepPartial<User>) {
         Object.assign(this, entity);

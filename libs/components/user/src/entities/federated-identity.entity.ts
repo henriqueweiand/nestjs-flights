@@ -9,18 +9,22 @@ export class FederatedIdentity {
     @PrimaryGeneratedColumn('uuid', { name: 'id' })
     id: string;
 
+    @Field()
+    @Column({ name: 'external_id', nullable: false })
+    externalId: string;
+
     @Field(() => SocialProviderEnum)
     @Column({
         type: 'enum',
         enum: SocialProviderEnum,
         nullable: false,
     })
-    provider: SocialProviderEnum;
+    type: SocialProviderEnum;
 
     @Column({ type: 'json', nullable: false })
     data: any;
 
-    @ManyToOne(() => User, user => user.federatedIdentity, { cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+    @ManyToOne(() => User, user => user.federatedIdentity, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     @JoinColumn({ name: 'user_id' })
     user: User;
 

@@ -1,6 +1,3 @@
-/** Social login providers by which our users can authenticate themselves */
-export type AuthProvider = 'github';
-
 /** Claims contained in the JSON Web Token we issue to our authenticated users;
  * see https://en.wikipedia.org/wiki/JSON_Web_Token#Standard_fields */
 export type JwtPayload = {
@@ -18,6 +15,5 @@ export type JwtPayload = {
 	/** e.g. "John Doe" */
 	displayName: string;
 
-	/** Profile photo URL */
-	photo?: string;
+	email: string;
 };

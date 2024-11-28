@@ -3,11 +3,16 @@ import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { Profile, Strategy } from 'passport-github';
 
+import { FederatedIdentity } from '@components/user/entities/federated-identity.entity';
+import { User } from '@components/user/entities/user.entity';
+import { SocialProviderEnum } from '@components/user/enums/federated-identity.enum';
+import { UserService } from '@components/user/user.service';
+
 @Injectable()
 export class GithubOauthStrategy extends PassportStrategy(Strategy, 'github') {
 	constructor(
 		private configService: ConfigService,
-		// private usersService: UsersService,
+		private userService: UserService,
 	) {
 		super({
 			clientID: configService.get<string>('GITHUB_OAUTH_CLIENT_ID'),
@@ -31,10 +36,20 @@ export class GithubOauthStrategy extends PassportStrategy(Strategy, 'github') {
 		// (e.g., creating the user property on the Request object), and the request
 		// handling pipeline can continue.
 
-		const { id } = profile;
-		// const user = await this.usersService.findOrCreate(id, 'github');
-		const user = profile;
-		if (!user) {
+		const user = new User({
+			name: profile.displayName,
+			email: profile.emails[0].value,
+		})
+
+		const federatedIdentity = new FederatedIdentity({
+			externalId: profile.id,
+			type: SocialProviderEnum.GITHUB,
+			data: profile,
+		});
+
+		const checkUser = await this.userService.findOrCreate(user, federatedIdentity);
+
+		if (!checkUser) {
 			// TODO Depending on the concrete implementation of findOrCreate(), throwing the
 			// UnauthorizedException here might not make sense...
 			throw new UnauthorizedException();

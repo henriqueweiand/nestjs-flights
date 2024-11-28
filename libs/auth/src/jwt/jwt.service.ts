@@ -2,17 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { JwtService as NestJwtService } from '@nestjs/jwt';
 
 import { JwtPayload } from './jwt.interfaces';
+import { User } from '@components/user/entities/user.entity';
 
 @Injectable()
 export class JwtService {
   constructor(private jwtService: NestJwtService) { }
 
-  login(user: any) {
-    const { id, displayName, photos } = user;
+  login(user: User) {
+    const { id, name } = user;
     const payload: JwtPayload = {
+      email: user.email,
       sub: id,
-      displayName,
-      photo: photos?.[0]?.value,
+      displayName: name,
     };
 
     return {
