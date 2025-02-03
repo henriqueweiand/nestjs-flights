@@ -2,7 +2,7 @@
 
 NestJS Flights is a project that uses a third-party provider to get the flight data and after storing and caching, the API provides the data through GraphQL
 
-![Preview](https://github.com/henriqueweiand/nestjs-flights/blob/master/assets/overview.png)
+![Preview](https://github.com/henriqueweiand/nestjs-flights/blob/main/assets/overview.png)
 
 ### How to run
 
